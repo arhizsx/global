@@ -1,0 +1,315 @@
+{
+    "fields_definition": [
+        {
+            "group": "Chapter Information",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "singular",
+                    "name" : "chapter_name",
+                    "label": "Chapter Name",
+                    "placeholder": "Chapter Name",
+                    "default_value": "",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "date_founded",
+                    "label": "Date Founded",
+                    "placeholder": "Date Founded",
+                    "default_value": "",
+                    "type": "date",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "chapter_category",
+                    "label": "Chapter Category",
+                    "placeholder": "Chapter Category",
+                    "default_value": "",
+                    "type": "select",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "options":[
+                        {
+                            "value": "School",
+                            "text": "School"
+                        },
+                        {
+                            "value": "Community",
+                            "text": "Community"
+                        }
+                    ],
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "country",
+                    "label": "Country",
+                    "placeholder": "Country",
+                    "default_value": "",
+                    "type": "select_table",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "type_options":{
+                        "table": "",
+                        "value": "value",
+                        "text": "text",
+                        "data-attributes":[
+                        ]
+                    },
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "region",
+                    "label": "Region",
+                    "placeholder": "Region",
+                    "default_value": "",
+                    "type": "select_table",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "type_options":{
+                        "table": "",
+                        "value": "value",
+                        "text": "text"
+                    },
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "province",
+                    "label": "Province",
+                    "placeholder": "Province",
+                    "default_value": "",
+                    "type": "select_table",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "type_options":{
+                        "table": "",
+                        "value": "value",
+                        "text": "text",
+                        "data-attributes":[
+                            {
+                                "field": "region",
+                                "attribute": "region"
+                            }
+                        ]
+                    },
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "city",
+                    "label": "City",
+                    "placeholder": "City",
+                    "default_value": "",
+                    "type": "select_table",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "type_options":{
+                        "table": "",
+                        "value": "value",
+                        "text": "text",
+                        "data-attributes":[
+                            {
+                                "field": "province",
+                                "attribute": "province"
+                            }
+                        ]
+                    },
+                    "required": true
+                }
+            ]
+        },
+        {
+            "group": "Founders / Sponsors",
+            "instruction": "A Founder was enrolled in the school of the chapter when the the chapter was organized or transferred active membership to the community chapter. Sponsor was not enrolled in the school or transfer active membership to the community chapter.",
+            "fields": [
+                {
+                    "category": "multiple",
+                    "fields": [
+                        {
+                            "category": "singular",
+                            "name" : "founder_sponsor_fullname",
+                            "label": "Full Name",
+                            "placeholder": "Founder / Sponsor Full Name",
+                            "default_value": "",
+                            "type": "text",
+                            "col-xl": 9,
+                            "col-lg": 9,
+                            "col-md": 8,
+                            "col-sm": 12,
+                            "required": true
+                        },
+                        {
+                            "category": "singular",
+                            "name" : "organizer_category",
+                            "label": "Organizer Category",
+                            "placeholder": "Organizer Category",
+                            "default_value": "",
+                            "type": "select",
+                            "col-xl": 3,
+                            "col-lg": 3,
+                            "col-md": 4,
+                            "col-sm": 12,
+                            "options":[
+                                {
+                                    "value": "Founder",
+                                    "text": "Founder"
+                                },
+                                {
+                                    "value": "Sponsor",
+                                    "text": "Sponsor"
+                                }
+                            ],
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": "Founder's Batch",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "multiple",
+                    "fields": [
+                        {
+                            "category": "singular",
+                            "name" : "founders_batch_member_fullname",
+                            "label": "Full Name",
+                            "placeholder": "Founder's Batch Member",
+                            "default_value": "",
+                            "type": "text",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": "Current Grand Council Officers",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "singular",
+                    "name" : "grand_triskelion",
+                    "label": "Grand Triskelion",
+                    "placeholder": "Grand Triskelion",
+                    "default_value": "",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "deputy_grand_triskelion",
+                    "label": "Deputy Grand Triskelion",
+                    "placeholder": "Deputy Grand Triskelion",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "master_keeper_of_scrolls",
+                    "label": "Master Keeper of Scrolls",
+                    "placeholder": "Master Keeper of Scrolls",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "master_wielder_of_the_whip",
+                    "label": "Master Wielder of the Whip",
+                    "placeholder": "Master Wielder of the Whip",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "master_of_initiation",
+                    "label": "Master of Initiation",
+                    "placeholder": "Master of Initiation",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "required": true
+                }
+            ]
+        },
+        {
+            "group": "Grand Council Members",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "multiple",
+                    "fields": [
+                        {
+                            "category": "singular",
+                            "name" : "grand_council_member",
+                            "label": "Full Name",
+                            "placeholder": "Grand Council Member",
+                            "default_value": "",
+                            "type": "text",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": "Active Members",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "multiple",
+                    "fields": [
+                        {
+                            "category": "singular",
+                            "name" : "active_member",
+                            "label": "Full Name",
+                            "placeholder": "Active Member",
+                            "default_value": "",
+                            "type": "text",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

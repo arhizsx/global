@@ -1,0 +1,140 @@
+{
+    "fields_definition": [
+        {
+            "group": "Chapter Information",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "singular",
+                    "name" : "chapter_name",
+                    "label": "Chapter Name",
+                    "placeholder": "Chapter Name",
+                    "default_value": "",
+                    "type": "text",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "group": "History Year",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "singular",
+                    "name" : "year",
+                    "label": "Year",
+                    "placeholder": "Year",
+                    "default_value": "",
+                    "type": "date",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "group": "Grand Council Officers",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "singular",
+                    "name" : "grand_triskelion",
+                    "label": "Grand Triskelion",
+                    "placeholder": "Grand Triskelion",
+                    "default_value": "",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "deputy_grand_triskelion",
+                    "label": "Deputy Grand Triskelion",
+                    "placeholder": "Deputy Grand Triskelion",
+                    "default_value": "",
+                    "type": "text",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "group": "Grand Council Members",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "multiple",
+                    "fields": [
+                        {
+                            "category": "singular",
+                            "name" : "grand_council_member",
+                            "label": "Full Name",
+                            "placeholder": "Grand Council Member",
+                            "default_value": "",
+                            "type": "text",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": "Alexis (Baptized Neophytes)",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "multiple",
+                    "fields": [
+                        {
+                            "category": "singular",
+                            "name" : "alexis",
+                            "label": "Full Name",
+                            "placeholder": "Alexis",
+                            "default_value": "",
+                            "type": "text",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": "New Triskelions (Passed Initiation Rites)",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "multiple",
+                    "fields": [
+                        {
+                            "category": "singular",
+                            "name" : "new_triskelion",
+                            "label": "Full Name",
+                            "placeholder": "New Triskelion",
+                            "default_value": "",
+                            "type": "text",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": "Significant Accomplishment and Updates",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "singular",
+                    "name" : "history",
+                    "label": "History",
+                    "placeholder": "",
+                    "default_value": "",
+                    "type": "textarea",
+                    "required": true
+                }
+            ]
+        }
+
+
+
+
+
+
+
+    ]
+}

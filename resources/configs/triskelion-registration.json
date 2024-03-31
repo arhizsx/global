@@ -1,0 +1,889 @@
+{
+    "fields_definition": [
+        {
+            "group": "Active Chapter",
+            "instruction": "Chapter where you are currently active",
+            "fields": [
+                {
+                    "category": "singular",
+                    "name" : "chapter_name",
+                    "label": "Chapter Name",
+                    "placeholder": "Chapter Name",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 12,
+                    "col-lg": 12,
+                    "col-md": 12,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "date_joined",
+                    "label": "Date Joined",
+                    "placeholder": "Date Joined",
+                    "default_value": "",
+                    "type": "date",
+                    "col-xl": 4,
+                    "col-lg": 4,
+                    "col-md": 4,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "chapter_serial",
+                    "label": "Chapter Serial",
+                    "placeholder": "Chapter Serial",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 4,
+                    "col-lg": 4,
+                    "col-md": 4,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "chapter_category",
+                    "label": "Chapter Category",
+                    "placeholder": "Chapter Category",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 4,
+                    "col-lg": 4,
+                    "col-md": 4,
+                    "col-sm": 12,
+                    "options":[
+                        {
+                            "value": "School",
+                            "text": "School"
+                        },
+                        {
+                            "value": "Community",
+                            "text": "Community"
+                        }
+                    ],
+                    "required": true
+                }
+            ]
+        },
+        {
+            "group": "Active Chapter Positions Held",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "multiple",
+                    "fields": [
+                        {
+                            "category": "singular",
+                            "name" : "founder_sponsor_fullname",
+                            "label": "Full Name",
+                            "placeholder": "Founder / Sponsor Full Name",
+                            "default_value": "",
+                            "type": "text",
+                            "col-xl": 10,
+                            "col-lg": 10,
+                            "col-md": 9,
+                            "col-sm": 12,
+                            "required": true
+                        },
+                        {
+                            "category": "singular",
+                            "name" : "active_year",
+                            "label": "Year",
+                            "placeholder": "Year",
+                            "default_value": "",
+                            "type": "select_loop",
+                            "col-xl": 2,
+                            "col-lg": 2,
+                            "col-md": 3,
+                            "col-sm": 12,
+                            "options":[
+                            ],
+                            "type_options":{
+                                "type": "number_loop",
+                                "value": "value",
+                                "text": "text",
+                                "start": "1968",
+                                "end": "%THIS_YEAR%"
+                            },
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": "Root Chapter",
+            "instruction": "Chapter where you are currently active",
+            "fields": [
+                {
+                    "category": "singular",
+                    "name" : "chapter_name",
+                    "label": "Chapter Name",
+                    "placeholder": "Chapter Name",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 8,
+                    "col-lg": 8,
+                    "col-md": 12,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "chapter_category",
+                    "label": "Chapter Categgory",
+                    "placeholder": "Chapter Category",
+                    "default_value": "",
+                    "type": "select",
+                    "col-xl": 4,
+                    "col-lg": 4,
+                    "col-md": 12,
+                    "col-sm": 12,
+                    "options":[
+                        {
+                            "value": "School",
+                            "text": "School"
+                        },
+                        {
+                            "value": "Community",
+                            "text": "Community"
+                        }
+                    ],
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "initiation_month",
+                    "label": "Initiation Month",
+                    "placeholder": "Month",
+                    "default_value": "",
+                    "type": "select",
+                    "col-xl": 4,
+                    "col-lg": 4,
+                    "col-md": 4,
+                    "col-sm": 4,
+                    "options":[
+                        {
+                            "value": "01",
+                            "text": "January"
+                        },
+                        {
+                            "value": "02",
+                            "text": "February"
+                        },
+                        {
+                            "value": "03",
+                            "text": "March"
+                        },
+                        {
+                            "value": "04",
+                            "text": "April"
+                        },
+                        {
+                            "value": "05",
+                            "text": "May"
+                        },
+                        {
+                            "value": "06",
+                            "text": "June"
+                        },
+                        {
+                            "value": "07",
+                            "text": "July"
+                        },
+                        {
+                            "value": "08",
+                            "text": "August"
+                        },
+                        {
+                            "value": "09",
+                            "text": "September"
+                        },
+                        {
+                            "value": "10",
+                            "text": "October"
+                        },
+                        {
+                            "value": "11",
+                            "text": "November"
+                        },
+                        {
+                            "value": "12",
+                            "text": "December"
+                        }
+                    ],
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "initiation_day",
+                    "label": "Initiation Day",
+                    "placeholder": "Day",
+                    "default_value": "",
+                    "type": "select_loop",
+                    "col-xl": 4,
+                    "col-lg": 4,
+                    "col-md": 4,
+                    "col-sm": 4,
+                    "options":[
+                    ],
+                    "type_options":{
+                        "type": "number_loop",
+                        "value": "value",
+                        "text": "text",
+                        "start": "1",
+                        "end": "31"
+                    },
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "initiation_year",
+                    "label": "Initiation Year",
+                    "placeholder": "Year",
+                    "default_value": "",
+                    "type": "select_loop",
+                    "col-xl": 4,
+                    "col-lg": 4,
+                    "col-md": 4,
+                    "col-sm": 4,
+                    "options":[
+                    ],
+                    "type_options":{
+                        "type": "number_loop",
+                        "value": "value",
+                        "text": "text",
+                        "start": "1968",
+                        "end": "%THIS_YEAR%"
+                    },
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "batch_name",
+                    "label": "Batch Name",
+                    "placeholder": "Batch Name",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 12,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "alexis_name",
+                    "label": "Alexis Name",
+                    "placeholder": "Alexis Name",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 12,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "grand_triskelion",
+                    "label": "Grand Triskelion",
+                    "placeholder": "Grand Triskelion",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 12,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "master_of_initiation",
+                    "label": "Master of Initiation",
+                    "placeholder": "Master of Initiation",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 6,
+                    "col-lg": 6,
+                    "col-md": 12,
+                    "col-sm": 12,
+                    "required": true
+                }
+            ]
+        },
+        {
+            "group": "Root Chapter Positions Held",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "multiple",
+                    "fields": [
+                        {
+                            "category": "singular",
+                            "name" : "root_chapter_position",
+                            "label": "Position",
+                            "placeholder": "Position",
+                            "default_value": "",
+                            "type": "select",
+                            "col-xl": 10,
+                            "col-lg": 10,
+                            "col-md": 9,
+                            "col-sm": 12,
+                            "options":[
+                                {
+                                    "value": "Grand Triskelion",
+                                    "text": "Grand Triskelion"
+                                },
+                                {
+                                    "value": "Deputy Grand Triskelion",
+                                    "text": "Deputy Grand Triskelion"
+                                },
+                                {
+                                    "value": "Master Keeper of Scrolls",
+                                    "text": "Master Keeper of Scrolls"
+                                },
+                                {
+                                    "value": "Master Keeper of the Chest",
+                                    "text": "Master Keeper of the Chest"
+                                },
+                                {
+                                    "value": "Master Wielder of the Whip",
+                                    "text": "Master Wielder of the Whip"
+                                },
+                                {
+                                    "value": "Master of Initiation",
+                                    "text": "Master of Initiation"
+                                },
+                                {
+                                    "value": "Grand Council Member",
+                                    "text": "Grand Council Member"
+                                }
+                            ],
+                            "required": true
+                        },
+                        {
+                            "category": "singular",
+                            "name" : "initiation_year",
+                            "label": "Year",
+                            "placeholder": "Year",
+                            "default_value": "",
+                            "type": "select_loop",
+                            "col-xl": 2,
+                            "col-lg": 2,
+                            "col-md": 3,
+                            "col-sm": 12,
+                            "options":[
+                            ],
+                            "type_options":{
+                                "type": "number_loop",
+                                "value": "value",
+                                "text": "text",
+                                "start": "1968",
+                                "end": "%THIS_YEAR%"
+                            },
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": "Welcome Chapter",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "multiple",
+                    "fields": [
+                        {
+                            "category": "singular",
+                            "name" : "welcome_chapter_name",
+                            "label": "Welcome Chapter Name",
+                            "placeholder": "Welcome Chapter Name",
+                            "default_value": "Welcome Chapter",
+                            "type": "text",
+                            "col-xl": 10,
+                            "col-lg": 10,
+                            "col-md": 9,
+                            "col-sm": 12,
+                            "required": true
+                        },
+                        {
+                            "category": "singular",
+                            "name" : "welcome_year",
+                            "label": "Year",
+                            "placeholder": "Year",
+                            "default_value": "",
+                            "type": "select_loop",
+                            "col-xl": 2,
+                            "col-lg": 2,
+                            "col-md": 3,
+                            "col-sm": 12,
+                            "options":[
+                            ],
+                            "type_options":{
+                                "type": "number_loop",
+                                "value": "value",
+                                "text": "text",
+                                "start": "1968",
+                                "end": "%THIS_YEAR%"
+                            },
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": "Welcome Chapter Positions Held",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "multiple",
+                    "fields": [
+                        {
+                            "category": "singular",
+                            "name" : "welcome_chapter_position",
+                            "label": "Position",
+                            "placeholder": "",
+                            "default_value": "",
+                            "type": "select",
+                            "col-xl": 3,
+                            "col-lg": 3,
+                            "col-md": 6,
+                            "col-sm": 12,
+                            "options":[
+                                {
+                                    "value": "Grand Triskelion",
+                                    "text": "Grand Triskelion"
+                                },
+                                {
+                                    "value": "Deputy Grand Triskelion",
+                                    "text": "Deputy Grand Triskelion"
+                                },
+                                {
+                                    "value": "Master Keeper of Scrolls",
+                                    "text": "Master Keeper of Scrolls"
+                                },
+                                {
+                                    "value": "Master Keeper of the Chest",
+                                    "text": "Master Keeper of the Chest"
+                                },
+                                {
+                                    "value": "Master Wielder of the Whip",
+                                    "text": "Master Wielder of the Whip"
+                                },
+                                {
+                                    "value": "Master of Initiation",
+                                    "text": "Master of Initiation"
+                                },
+                                {
+                                    "value": "Grand Council Member",
+                                    "text": "Grand Council Member"
+                                }
+                            ],
+                            "required": true
+                        },
+                        {
+                            "category": "singular",
+                            "name" : "welcome_year",
+                            "label": "Year",
+                            "placeholder": "Year",
+                            "default_value": "",
+                            "type": "select_loop",
+                            "col-xl": 2,
+                            "col-lg": 2,
+                            "col-md": 6,
+                            "col-sm": 12,
+                            "options":[
+                            ],
+                            "type_options":{
+                                "type": "number_loop",
+                                "value": "value",
+                                "text": "text",
+                                "start": "1968",
+                                "end": "%THIS_YEAR%"
+                            },
+                            "required": true
+                        },
+                        {
+                            "category": "singular",
+                            "name" : "welcome_chapter_name",
+                            "label": "Welcome Chapter",
+                            "placeholder": "Welcome Chapter",
+                            "default_value": "",
+                            "type": "select",
+                            "col-xl": 7,
+                            "col-lg": 7,
+                            "col-md": 6,
+                            "col-sm": 12,
+                            "options":[
+                            ],
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": "Personal Information",
+            "instruction": "Mandatory fields marked by asterisk",
+            "fields": [
+                {
+                    "category": "singular",
+                    "name" : "firstname",
+                    "label": "Firstname",
+                    "placeholder": "Chapter Name",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 3,
+                    "col-lg": 3,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "middlename",
+                    "label": "Middlename",
+                    "placeholder": "Chapter Name",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 3,
+                    "col-lg": 3,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "lastname",
+                    "label": "Lastname",
+                    "placeholder": "Chapter Name",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 3,
+                    "col-lg": 3,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "suffix",
+                    "label": "Suffix",
+                    "placeholder": "Suffix",
+                    "default_value": "",
+                    "type": "select",
+                    "col-xl": 3,
+                    "col-lg": 3,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "options":[
+                        {
+                            "value": "Sr",
+                            "text": "Sr"
+                        },
+                        {
+                            "value": "Jr",
+                            "text": "Jr"
+                        },
+                        {
+                            "value": "III",
+                            "text": "III"
+                        },
+                        {
+                            "value": "IV",
+                            "text": "Jr"
+                        },
+                        {
+                            "value": "V",
+                            "text": "V"
+                        }
+                    ]
+                },
+                {
+                    "category": "singular",
+                    "name" : "nickname",
+                    "label": "Nickname",
+                    "placeholder": "Nickname",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 3,
+                    "col-lg": 3,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "birthday",
+                    "label": "Date of Birth",
+                    "placeholder": "Date of Birth",
+                    "default_value": "",
+                    "type": "date",
+                    "col-xl": 3,
+                    "col-lg": 3,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "birthplace",
+                    "label": "Place of Birth",
+                    "placeholder": "Place of Birth",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 3,
+                    "col-lg": 3,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "citizenship",
+                    "label": "Citizenship",
+                    "placeholder": "Citizenship",
+                    "default_value": "",
+                    "type": "select_table",
+                    "col-xl": 3,
+                    "col-lg": 3,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "type_options":{
+                        "table": "",
+                        "value": "value",
+                        "text": "text",
+                        "data-attributes":[
+                        ]
+                    },
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "civil_status",
+                    "label": "Civil Status",
+                    "placeholder": "Civil Status",
+                    "default_value": "",
+                    "type": "select",
+                    "col-xl": 4,
+                    "col-lg": 4,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "options":[
+                        {
+                            "value": "Single",
+                            "text": "Single"
+                        },
+                        {
+                            "value": "Married",
+                            "text": "Married"
+                        },
+                        {
+                            "value": "Separated",
+                            "text": "Separated"
+                        },
+                        {
+                            "value": "Widowed",
+                            "text": "Widowed"
+                        }
+                    ]
+                },
+                {
+                    "category": "singular",
+                    "name" : "number_of_children",
+                    "label": "Number of Children",
+                    "placeholder": "Number of Children",
+                    "default_value": "",
+                    "type": "select_loop",
+                    "col-xl": 4,
+                    "col-lg": 4,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "options":[
+                    ],
+                    "type_options":{
+                        "type": "number_loop",
+                        "value": "value",
+                        "text": "text",
+                        "start": "1",
+                        "end": "20"
+                    },
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "blood_type",
+                    "label": "Blood Type",
+                    "placeholder": "Blood Type",
+                    "default_value": "",
+                    "type": "select",
+                    "col-xl": 4,
+                    "col-lg": 4,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "options":[
+                        {
+                            "value": "A+",
+                            "text": "A+"
+                        },
+                        {
+                            "value": "A-",
+                            "text": "A-"
+                        },
+                        {
+                            "value": "B+",
+                            "text": "B+"
+                        },
+                        {
+                            "value": "B-",
+                            "text": "B-"
+                        },
+                        {
+                            "value": "O+",
+                            "text": "O+"
+                        },
+                        {
+                            "value": "O-",
+                            "text": "O-"
+                        },
+                        {
+                            "value": "AB+",
+                            "text": "AB+"
+                        },
+                        {
+                            "value": "AB-",
+                            "text": "AB-"
+                        }
+                    ]
+                },
+                {
+                    "category": "singular",
+                    "name" : "industry",
+                    "label": "Industry where Employed or Doing Business",
+                    "placeholder": "Industry",
+                    "default_value": "",
+                    "type": "select",
+                    "col-xl": 4,
+                    "col-lg": 4,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "options":[
+                        {
+                            "value": "Agriculture, Forestry and Fishing",
+                            "text": "Agriculture, Forestry and Fishing"
+                        },
+                        {
+                            "value": "Mining and Quarrying",
+                            "text": "Mining and Quarrying"
+                        },
+                        {
+                            "value": "Communications and IT",
+                            "text": "Communications and IT"
+                        },
+                        {
+                            "value": "Electricity, Gas and Aitconditioning",
+                            "text": "Electricity, Gas and Aitconditioning"
+                        },
+                        {
+                            "value": "Water, Sewage and Waste Management",
+                            "text": "Water, Sewage and Waste Management"
+                        },
+                        {
+                            "value": "Education and Training",
+                            "text": "Education and Training"
+                        },
+                        {
+                            "value": "Finance and Insurance",
+                            "text": "Finance and Insurance"
+                        },
+                        {
+                            "value": "Wholesale and Retail Trade",
+                            "text": "Wholesale and Retail Trade"
+                        },
+                        {
+                            "value": "Human Health and Social Welfare",
+                            "text": "Human Health and Social Welfare"
+                        },
+                        {
+                            "value": "Manufacturing",
+                            "text": "Manufacturing"
+                        },
+                        {
+                            "value": "Construction",
+                            "text": "Construction"
+                        },
+                        {
+                            "value": "Transportation and Storage",
+                            "text": "Transportation and Storage"
+                        },
+                        {
+                            "value": "Real Estate",
+                            "text": "Real Estate"
+                        },
+                        {
+                            "value": "Accommodation and Food Services",
+                            "text": "Accommodation and Food Services"
+                        },
+                        {
+                            "value": "Arts, Entertainment and Recreation",
+                            "text": "Arts, Entertainment and Recreation"
+                        },
+                        {
+                            "value": "Professional, Scientific and Technical Services",
+                            "text": "Professional, Scientific and Technical Services"
+                        },
+                        {
+                            "value": "Administrative and Support Services",
+                            "text": "Administrative and Support Services"
+                        },
+                        {
+                            "value": "Public Administration and Social Security",
+                            "text": "Public Administration and Social Security"
+                        },
+                        {
+                            "value": "Law Enforcement and Defense",
+                            "text": "Law Enforcement and Defense"
+                        },
+                        {
+                            "value": "Others",
+                            "text": "Others"
+                        }
+                    ]
+                },
+                {
+                    "category": "singular",
+                    "name" : "company",
+                    "label": "Company / Institution",
+                    "placeholder": "Company / Institution",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 4,
+                    "col-lg": 4,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "required": true
+                },
+                {
+                    "category": "singular",
+                    "name" : "position",
+                    "label": "Position / Role",
+                    "placeholder": "Position / Role",
+                    "default_value": "",
+                    "type": "text",
+                    "col-xl": 4,
+                    "col-lg": 4,
+                    "col-md": 6,
+                    "col-sm": 12,
+                    "required": true
+                }
+            ]
+        }
+
+    ]
+}
