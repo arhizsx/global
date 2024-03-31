@@ -620,7 +620,8 @@
                             "value": "V",
                             "text": "V"
                         }
-                    ]
+                    ],
+                    "required": true
                 },
                 {
                     "category": "singular",
@@ -714,7 +715,8 @@
                             "value": "Widowed",
                             "text": "Widowed"
                         }
-                    ]
+                    ],
+                    "required": true
                 },
                 {
                     "category": "singular",
@@ -734,7 +736,7 @@
                         "type": "number_loop",
                         "value": "value",
                         "text": "text",
-                        "start": "1",
+                        "start": "0",
                         "end": "20"
                     },
                     "required": true
@@ -784,7 +786,8 @@
                             "value": "AB-",
                             "text": "AB-"
                         }
-                    ]
+                    ],
+                    "required": true
                 },
                 {
                     "category": "singular",
@@ -879,7 +882,8 @@
                             "value": "Others",
                             "text": "Others"
                         }
-                    ]
+                    ],
+                    "required": true
                 },
                 {
                     "category": "singular",

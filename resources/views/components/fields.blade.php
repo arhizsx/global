@@ -19,17 +19,17 @@ $config_decoded = json_decode($json_path, true);
 
                             @if( $field["type"] == "text")
                                 <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
-                                    <label for="{{ $field["name"] }}">{{ $field["label"] }}</label>
+                                    <label for="{{ $field["name"] }}">{{ $field["label"] }} {{ $field["required"] === true ? "*" : "" }}</label>
                                     <input name="{{ $field["name"] }}" type="text" class="form-control mb-3 {{ $field["class"] ?? '' }}" placeholder="{{ $field["placeholder"] }}">
                                 </div>
                             @elseif( $field["type"] == "date")
                                 <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
-                                    <label for="{{ $field["name"] }}">{{ $field["label"] }}</label>
+                                    <label for="{{ $field["name"] }}">{{ $field["label"] }} {{ $field["required"] === true ? "*" : "" }}</label>
                                     <input name="{{ $field["name"] }}" type="date" class="form-control mb-3 {{ $field["class"] ?? '' }}" placeholder="{{ $field["placeholder"] }}">
                                 </div>
                             @elseif( $field["type"] == "select")
                                 <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
-                                    <label for="{{ $field["name"] }}">{{ $field["label"] }}</label>
+                                    <label for="{{ $field["name"] }}">{{ $field["label"] }} {{ $field["required"] === true ? "*" : "" }}</label>
                                     <select name="{{ $field["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                         <option value="">{{ $field["placeholder"] }}</option>
                                         @if(array_key_exists("options", $field ))
@@ -41,7 +41,7 @@ $config_decoded = json_decode($json_path, true);
                                 </div>
                             @elseif( $field["type"] == "select_loop")
                                 <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
-                                    <label for="{{ $field["name"] }}">{{ $field["label"] }}</label>
+                                    <label for="{{ $field["name"] }}">{{ $field["label"] }} {{ $field["required"] === true ? "*" : "" }}</label>
                                     <select name="{{ $field["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                         <option value="">{{ $field["placeholder"] }}</option>
                                         @php
@@ -59,7 +59,7 @@ $config_decoded = json_decode($json_path, true);
                                 </div>
                             @elseif( $field["type"] == "select_table")
                                 <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
-                                    <label for="{{ $field["name"] }}">{{ $field["label"] }}</label>
+                                    <label for="{{ $field["name"] }}">{{ $field["label"] }} {{ $field["required"] === true ? "*" : "" }}</label>
                                     <select name="{{ $field["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                         <option value="">{{ $field["placeholder"] }}</option>
 
@@ -69,7 +69,7 @@ $config_decoded = json_decode($json_path, true);
                             @elseif($field["type"] == "textarea")
 
                                 <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
-                                    <label for="{{ $field["name"] }}">{{ $field["label"] }}</label>
+                                    <label for="{{ $field["name"] }}">{{ $field["label"] }} {{ $field["required"] === true ? "*" : "" }}</label>
                                     <textarea class="form-control mb-3 {{ $field["class"] ?? '' }}" rows="15" name="{{ $field["name"] }}"></textarea>
                                 </div>
 
@@ -88,14 +88,14 @@ $config_decoded = json_decode($json_path, true);
                                 @if($flds["type"] == "text")
 
                                     <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
-                                        <label for="{{ $flds["name"] }}">{{ $flds["label"] }}</label>
+                                        <label for="{{ $flds["name"] }}">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
                                         <input name="{{ $flds["name"] }}" type="text" class="form-control mb-3 {{ $field["class"] ?? '' }}" placeholder="{{ $flds["placeholder"] }}">
                                     </div>
 
                                 @elseif($flds["type"] == "select")
 
                                     <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
-                                        <label for="{{ $flds["name"] }}">{{ $flds["label"] }}</label>
+                                        <label for="{{ $flds["name"] }}">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
                                         <select name="{{ $flds["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                             @if(array_key_exists("options", $flds ))
                                                 <option value="">{{ $flds["placeholder"] }}</option>
@@ -110,7 +110,7 @@ $config_decoded = json_decode($json_path, true);
                                 @elseif($flds["type"] == "select_loop")
 
                                     <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
-                                        <label for="{{ $flds["name"] }}">{{ $flds["label"] }}</label>
+                                        <label for="{{ $flds["name"] }}">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
                                         <select name="{{ $flds["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                             <option value="">{{ $flds["placeholder"] }}</option>
                                             @php
@@ -130,7 +130,7 @@ $config_decoded = json_decode($json_path, true);
                                 @elseif($flds["type"] == "select_table")
 
                                     <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
-                                        <label for="{{ $flds["name"] }}">{{ $flds["label"] }}</label>
+                                        <label for="{{ $flds["name"] }}">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
                                         <select name="{{ $flds["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                             <option value="">{{ $flds["placeholder"] }}</option>
                                         </select>
@@ -139,7 +139,7 @@ $config_decoded = json_decode($json_path, true);
                                 @elseif($flds["type"] == "textarea")
 
                                     <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
-                                        <label for="{{ $flds["name"] }}">{{ $flds["label"] }}</label>
+                                        <label for="{{ $flds["name"] }}">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
                                         <textarea class="form-control mb-3 {{ $field["class"] ?? '' }}" name="{{ $flds["name"] }}"></textarea>
                                     </div>
 
