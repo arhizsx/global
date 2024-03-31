@@ -9,8 +9,15 @@
 @endsection
 
 @section("maincontent")
-<div class="row min-vh-100 bg-black" style="padding-top: 100px;">
+<div class="text-white" style="">
 
+@php
+    $chapters = \DB::table("chapters")
+                ->where("user_id", 10941)
+                ->get();
+
+    print_r( $chapters );
+
+@endphp
 </div>
-
 @endsection
