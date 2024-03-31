@@ -16,7 +16,7 @@
                 ->where("user_id", 10941)
                 ->get();
 
-    print_r( $chapters );
+    print_r( $chapters[0]->chapter_name );
 
 @endphp
 </div>
