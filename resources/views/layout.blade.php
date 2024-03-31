@@ -14,8 +14,8 @@
         html, body{height:100%; background-color: black;}
         .navbar-brand {
             font-weight: bold;
-            margin-right: 60px;
-            padding-left: 40px;
+            margin-right: 30px;
+            padding-left: 15px;
         }
         a {
             text-decoration: none;
@@ -25,7 +25,7 @@
         .subheader-text {
             padding-top: 10px;
             padding-bottom: 10px;
-            padding-left: 50px;
+            padding-left: 20px;
             font-size: 24px;
         }
         .menu-item {

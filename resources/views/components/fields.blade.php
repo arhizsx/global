@@ -20,17 +20,17 @@ $config_decoded = json_decode($json_path, true);
                             @if( $field["type"] == "text")
                                 <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
                                     <label for="{{ $field["name"] }}">{{ $field["label"] }}</label>
-                                    <input name="{{ $field["name"] }}" type="text" class="form-control mb-3" placeholder="{{ $field["placeholder"] }}">
+                                    <input name="{{ $field["name"] }}" type="text" class="form-control mb-3 {{ $field["class"] ?? '' }}" placeholder="{{ $field["placeholder"] }}">
                                 </div>
                             @elseif( $field["type"] == "date")
                                 <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
                                     <label for="{{ $field["name"] }}">{{ $field["label"] }}</label>
-                                    <input name="{{ $field["name"] }}" type="date" class="form-control mb-3" placeholder="{{ $field["placeholder"] }}">
+                                    <input name="{{ $field["name"] }}" type="date" class="form-control mb-3 {{ $field["class"] ?? '' }}" placeholder="{{ $field["placeholder"] }}">
                                 </div>
                             @elseif( $field["type"] == "select")
                                 <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
                                     <label for="{{ $field["name"] }}">{{ $field["label"] }}</label>
-                                    <select name="{{ $field["name"] }}" class="form-control mb-3">
+                                    <select name="{{ $field["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                         <option value="">{{ $field["placeholder"] }}</option>
                                         @if(array_key_exists("options", $field ))
                                             @foreach($field["options"] as $option)
@@ -42,7 +42,7 @@ $config_decoded = json_decode($json_path, true);
                             @elseif( $field["type"] == "select_loop")
                                 <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
                                     <label for="{{ $field["name"] }}">{{ $field["label"] }}</label>
-                                    <select name="{{ $field["name"] }}" class="form-control mb-3">
+                                    <select name="{{ $field["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                         <option value="">{{ $field["placeholder"] }}</option>
                                         @php
                                             if($field["type_options"]["end"] == "%THIS_YEAR%"){
@@ -60,7 +60,7 @@ $config_decoded = json_decode($json_path, true);
                             @elseif( $field["type"] == "select_table")
                                 <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
                                     <label for="{{ $field["name"] }}">{{ $field["label"] }}</label>
-                                    <select name="{{ $field["name"] }}" class="form-control mb-3">
+                                    <select name="{{ $field["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                         <option value="">{{ $field["placeholder"] }}</option>
 
                                     </select>
@@ -70,7 +70,7 @@ $config_decoded = json_decode($json_path, true);
 
                                 <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
                                     <label for="{{ $field["name"] }}">{{ $field["label"] }}</label>
-                                    <textarea class="form-control mb-3" rows="15" name="{{ $field["name"] }}"></textarea>
+                                    <textarea class="form-control mb-3 {{ $field["class"] ?? '' }}" rows="15" name="{{ $field["name"] }}"></textarea>
                                 </div>
 
 
@@ -89,14 +89,14 @@ $config_decoded = json_decode($json_path, true);
 
                                     <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
                                         <label for="{{ $flds["name"] }}">{{ $flds["label"] }}</label>
-                                        <input name="{{ $flds["name"] }}" type="text" class="form-control mb-3" placeholder="{{ $flds["placeholder"] }}">
+                                        <input name="{{ $flds["name"] }}" type="text" class="form-control mb-3 {{ $field["class"] ?? '' }}" placeholder="{{ $flds["placeholder"] }}">
                                     </div>
 
                                 @elseif($flds["type"] == "select")
 
                                     <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
                                         <label for="{{ $flds["name"] }}">{{ $flds["label"] }}</label>
-                                        <select name="{{ $flds["name"] }}" class="form-control mb-3">
+                                        <select name="{{ $flds["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                             @if(array_key_exists("options", $flds ))
                                                 <option value="">{{ $flds["placeholder"] }}</option>
 
@@ -111,7 +111,7 @@ $config_decoded = json_decode($json_path, true);
 
                                     <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
                                         <label for="{{ $flds["name"] }}">{{ $flds["label"] }}</label>
-                                        <select name="{{ $flds["name"] }}" class="form-control mb-3">
+                                        <select name="{{ $flds["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                             <option value="">{{ $flds["placeholder"] }}</option>
                                             @php
                                                 if($flds["type_options"]["end"] == "%THIS_YEAR%"){
@@ -131,7 +131,7 @@ $config_decoded = json_decode($json_path, true);
 
                                     <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
                                         <label for="{{ $flds["name"] }}">{{ $flds["label"] }}</label>
-                                        <select name="{{ $flds["name"] }}" class="form-control mb-3">
+                                        <select name="{{ $flds["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                             <option value="">{{ $flds["placeholder"] }}</option>
                                         </select>
                                     </div>
@@ -140,7 +140,7 @@ $config_decoded = json_decode($json_path, true);
 
                                     <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
                                         <label for="{{ $flds["name"] }}">{{ $flds["label"] }}</label>
-                                        <textarea class="form-control mb-3" name="{{ $flds["name"] }}"></textarea>
+                                        <textarea class="form-control mb-3 {{ $field["class"] ?? '' }}" name="{{ $flds["name"] }}"></textarea>
                                     </div>
 
                                 @else
