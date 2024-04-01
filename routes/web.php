@@ -46,7 +46,6 @@ Route::get('/record-update/chapter/details', function () {
 Route::get('/record-update/chapter/registered', function () {
 
     $chapters = DB::table("chapters")
-                ->join("countries", "countries.Code2", "chapters.country")
                 ->where("user_id", 822)
                 ->whereNotNull("chapter_serial_number")
                 ->get();
