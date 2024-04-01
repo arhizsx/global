@@ -50,7 +50,7 @@ Route::get('/record-update/chapter/registered', function () {
                 ->whereNotNull("chapter_serial_number")
                 ->get();
 
-    return view('record-update-chapter-registered', ["chapters" => $chapters]);
+    return view('record-update-chapter-registered', compact('chapters'));
 });
 
 Route::get('/record-update/chapter/triskelions', function () {
