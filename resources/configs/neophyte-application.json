@@ -1233,8 +1233,49 @@
                                 "end": "%THIS_YEAR%"
                             },
                             "required": true
+                        },
+                        {
+                            "category": "singular",
+                            "name" : "course",
+                            "label": "Course",
+                            "placeholder": "Course",
+                            "default_value": "",
+                            "type": "text",
+                            "col-xl": 6,
+                            "col-lg": 6,
+                            "col-md": 6,
+                            "col-sm": 6,
+                            "class": "field_monitor_multi",
+                            "required": true
+                        },
+                        {
+                            "category": "singular",
+                            "name" : "course_type",
+                            "label": "Type",
+                            "placeholder": "Type",
+                            "default_value": "",
+                            "type": "select",
+                            "col-xl": 6,
+                            "col-lg": 6,
+                            "col-md": 6,
+                            "col-sm": 6,
+                            "options":[
+                                {
+                                    "value": "Vocational",
+                                    "text": "Vocational"
+                                },
+                                {
+                                    "value": "College / Undergraduate",
+                                    "text": "College / Undergraduate"
+                                },
+                                {
+                                    "value": "Postgraduate",
+                                    "text": "Postgraduate"
+                                }
+                            ],
+                            "class": "field_monitor_multi",
+                            "required": true
                         }
-
                     ]
                 }
             ]

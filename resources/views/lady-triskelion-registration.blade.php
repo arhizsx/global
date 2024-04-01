@@ -11,7 +11,7 @@
 @section("maincontent")
 
 @php
-    $json = "triskelion-registration.json";
+    $json = "lady-triskelion-registration.json";
 @endphp
 
 <x-fields :json="$json" />
