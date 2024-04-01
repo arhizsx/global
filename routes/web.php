@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\DB;
 
 use \App\Http\Controllers\AjaxHandler;
 
@@ -44,7 +44,14 @@ Route::get('/record-update/chapter/details', function () {
 });
 
 Route::get('/record-update/chapter/registered', function () {
-    return view('record-update-chapter-registered');
+
+    $chapters = DB::table("chapters")
+                ->join("countries", "countries.Code2", "chapters.country")
+                ->where("user_id", 822)
+                ->whereNotNull("chapter_serial_number")
+                ->get();
+
+    return view('record-update-chapter-registered')->with('chapters', $chapters);
 });
 
 Route::get('/record-update/chapter/triskelions', function () {
