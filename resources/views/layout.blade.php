@@ -68,6 +68,9 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto" style="margin-left: 20px;">
                             <li class="nav-item active"> <a class="nav-link" href="/">Home</a> </li>
+                            <li class="nav-item"> <a class="nav-link" href="/triskelions">Triskelions</a> </li>
+                            <li class="nav-item"> <a class="nav-link" href="/chapters">Chapters</a> </li>
+                            <li class="nav-item"> <a class="nav-link" href="/record-update">Record Update</a> </li>
                         </ul>
                     </div>
                 </nav>

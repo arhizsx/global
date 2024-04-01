@@ -5,17 +5,12 @@
 @endsection
 
 @section("subheader")
+    <div class="subheader-text">Chapters</div>
 @endsection
 
 @section("maincontent")
 
 <div class="row justify-content-center min-vh-100 bg-black" style="padding-top: 100px;">
-    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
-        <a href="/triskelions/triskelion-registration">
-            <svg class="bi me-2 mb-2 menu-item"><use xlink:href="#logo"></use></svg>
-            <p>Triskelion Registration</p>
-        </a>
-    </div>
     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
         <a href="/chapters/chapter-registration">
             <svg class="bi me-2 mb-2 menu-item"><use xlink:href="#logo"></use></svg>
@@ -35,27 +30,9 @@
         </a>
     </div>
     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
-        <a href="/triskelions/neophyte-application">
-            <svg class="bi me-2 mb-2 menu-item"><use xlink:href="#logo"></use></svg>
-            <p>Neophyte Application</p>
-        </a>
-    </div>
-    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
-        <a href="record-update">
-            <svg class="bi me-2 mb-3  menu-item"><use xlink:href="#logo"></use></svg>
-            <p>Record Update</p>
-        </a>
-    </div>
-    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
         <a href="/chapters/tgs-chapter-registration">
             <img class="mb-2  menu-item" src="/images/taugammasigma.png">
             <p>TGS Chapter Registration</p>
-        </a>
-    </div>
-    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
-        <a href="/triskelions/lady-triskelion-registration">
-            <img class="mb-2 menu-item" src="/images/taugammasigma.png">
-            <p>Lady Triskelion Registration</p>
         </a>
     </div>
 </div>

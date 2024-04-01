@@ -12,23 +12,31 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/tgs-chapter-registration', function () {
+Route::get('/triskelions', function () {
+    return view('triskelions');
+});
+
+Route::get('/chapters', function () {
+    return view('chapters');
+});
+
+Route::get('/chapters/tgs-chapter-registration', function () {
     return view('tgs-chapter-registration');
 });
 
-Route::get('/lady-triskelion-registration', function () {
+Route::get('/triskelions/lady-triskelion-registration', function () {
     return view('lady-triskelion-registration');
 });
 
-Route::get('/chapter-history', function () {
+Route::get('/chapters/chapter-history', function () {
     return view('chapter-history');
 });
 
-Route::get('/chapter-registration', function () {
+Route::get('/chapters/chapter-registration', function () {
     return view('chapter-registration');
 });
 
-Route::get('/new-chapter-application', function () {
+Route::get('/chapters/new-chapter-application', function () {
     return view('new-chapter-application');
 });
 
@@ -61,11 +69,11 @@ Route::get('/record-update/profile', function () {
     return view('record-update-profile');
 });
 
-Route::get('/neophyte-application', function () {
+Route::get('/triskelions/neophyte-application', function () {
     return view('neophyte-application');
 });
 
-Route::get('/triskelion-registration', function () {
+Route::get('/triskelions/triskelion-registration', function () {
     return view('triskelion-registration');
 });
 
