@@ -20,8 +20,6 @@
                 <?php
                     $chapters = DB::table("chapters")
                                 ->join("countries", "countries.Code2", "chapters.country")
-                                ->where("user_id", 822)
-                                ->whereNotNull("chapter_serial_number")
                                 ->get();
                 ?>
                 @if( count($chapters) > 0 )
