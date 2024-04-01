@@ -17,13 +17,13 @@
             <small>Chapters you registered in the system</small>
         </div>
         <div class="col-xl-9 mb-3 pe-4 ps-4">
-                @php
-                    $chapters = \DB::table("chapters")
+                <?php
+                    $chapters = DB::table("chapters")
                                 ->join("countries", "countries.Code2", "chapters.country")
                                 ->where("user_id", 822)
                                 ->whereNotNull("chapter_serial_number")
                                 ->get();
-                @endphp
+                ?>
                 @if( count($chapters) > 0 )
                     @foreach($chapters as $chapter)
                     <div class="fields_box mb-3">
