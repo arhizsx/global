@@ -47,6 +47,10 @@ Route::get('/record-update/chapter/registered', function () {
     return view('record-update-chapter-registered');
 });
 
+Route::get('/record-update/chapter/triskelions', function () {
+    return view('record-update-chapter-triskelions');
+});
+
 Route::get('/record-update/profile', function () {
     return view('record-update-profile');
 });
