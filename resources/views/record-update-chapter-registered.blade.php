@@ -19,7 +19,6 @@
         <div class="col-xl-9 mb-3 pe-4 ps-4">
                 <?php
                     $chapters = DB::table("chapters")
-                                ->join("countries", "countries.Code2", "chapters.country")
                                 ->get();
                 ?>
                 @if( count($chapters) > 0 )
