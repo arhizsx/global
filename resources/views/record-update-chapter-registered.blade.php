@@ -40,7 +40,7 @@
                             </div>
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <label for="chapter_name">Country</label>
-                                <input disabled value="{{ $chapter->Country }}" name="chapter_name" type="text" class="form-control mb-3" placeholder="">
+                                <input disabled value="{{ $chapter->country }}" name="chapter_name" type="text" class="form-control mb-3" placeholder="">
                             </div>
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <label for="chapter_name">Region</label>
