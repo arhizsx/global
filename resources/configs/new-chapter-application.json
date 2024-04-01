@@ -468,7 +468,7 @@
             ]
         },
         {
-            "group": "Current Grand Council Officers",
+            "group": "Grand Council Officers",
             "instruction": "Mandatory fields marked by asterisk",
             "fields": [
                 {
@@ -562,7 +562,7 @@
             ]
         },
         {
-            "group": "Active Members",
+            "group": "Members",
             "instruction": "Mandatory fields marked by asterisk",
             "fields": [
                 {
