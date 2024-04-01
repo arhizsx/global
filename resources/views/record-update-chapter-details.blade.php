@@ -9,7 +9,7 @@
 @endsection
 
 @section("maincontent")
-<div class="trail"><a href="/record-update">Record Update</a> > <a href="/record-update/chapter/">Chapter</a> > <strong>Chapter Details Update</strong></div>
+<div class="trail"><a href="/record-update">Record Update</a> > <a href="/record-update/chapter/">Chapter</a> > <strong>Details Update</strong></div>
 
 @php
     $json = "chapter-registration.json";

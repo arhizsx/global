@@ -5,7 +5,7 @@
 @endsection
 
 @section("subheader")
-<div class="subheader-text">Triskelion Update</div>
+<div class="subheader-text">Chapter Triskelion Update</div>
 @endsection
 
 @section("maincontent")

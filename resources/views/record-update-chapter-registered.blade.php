@@ -9,7 +9,7 @@
 @endsection
 
 @section("maincontent")
-<div class="trail"><a href="/record-update">Record Update</a> > <a href="/record-update/chapter/">Chapter</a> > <strong>Registered Chapters</strong></div>
+<div class="trail"><a href="/record-update">Record Update</a> > <a href="/record-update/chapter/">Chapter</a> > <strong>Registered</strong></div>
 
 <div class="row py-5 border-bottom text-white">
         <div class="col-xl-3 mb-3 ps-4">
