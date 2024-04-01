@@ -9,5 +9,11 @@
 @endsection
 
 @section("maincontent")
+@php
+    $json = "neophyte-application.json";
+@endphp
+
+<x-fields :json="$json" />
+
 
 @endsection
