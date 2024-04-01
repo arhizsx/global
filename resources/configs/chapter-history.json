@@ -60,6 +60,7 @@
             "fields": [
                 {
                     "category": "multiple",
+                    "name": "grand_council_member_group",
                     "fields": [
                         {
                             "category": "singular",
@@ -80,6 +81,7 @@
             "fields": [
                 {
                     "category": "multiple",
+                    "name": "alexis_group",
                     "fields": [
                         {
                             "category": "singular",
@@ -100,6 +102,7 @@
             "fields": [
                 {
                     "category": "multiple",
+                    "name": "new_trikelion_group",
                     "fields": [
                         {
                             "category": "singular",

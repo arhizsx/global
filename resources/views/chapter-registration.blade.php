@@ -16,5 +16,4 @@
 
 <x-fields :json="$json" />
 
-
 @endsection

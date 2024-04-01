@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+use \App\Http\Controllers\AjaxHandler;
+
+
+
+
 Route::get('/', function () {
     return view('index');
 });
@@ -37,3 +43,6 @@ Route::get('/neophyte-application', function () {
 Route::get('/triskelion-registration', function () {
     return view('triskelion-registration');
 });
+
+
+Route::post('/ajax', [AjaxHandler::class, 'index']);
