@@ -36,6 +36,21 @@ Route::get('/record-update', function () {
     return view('record-update');
 });
 
+Route::get('/record-update/chapter', function () {
+    return view('record-update-chapter');
+});
+Route::get('/record-update/chapter/details', function () {
+    return view('record-update-chapter-details');
+});
+
+Route::get('/record-update/chapter/registered', function () {
+    return view('record-update-chapter-registered');
+});
+
+Route::get('/record-update/profile', function () {
+    return view('record-update-profile');
+});
+
 Route::get('/neophyte-application', function () {
     return view('neophyte-application');
 });

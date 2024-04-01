@@ -15,8 +15,7 @@
         html, body{height:100%; background-color: black;}
         .navbar-brand {
             font-weight: bold;
-            margin-right: 30px;
-            padding-left: 15px;
+            margin-left: 15px;
         }
         a {
             text-decoration: none;
@@ -46,6 +45,14 @@
             margin-bottom: 3px;
             font-size: .8em;
         }
+        .trail {
+            padding-top: 8px; padding-left: 18px; font-size: .75em;
+            color: white;
+        }
+        .trail strong {
+            color: #fdd700;
+        }
+
     </style>
     <body>
         @include('logo')
@@ -53,13 +60,13 @@
             <header>
                 <nav class="navbar fixed-top navbar-expand-lg bg-white p-2" style="min-height: 100px;">
                     <div class="navbar-brand">
-                        @yield("logo")
+                        <a href="/">@yield("logo")</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
+                        <ul class="navbar-nav mr-auto" style="margin-left: 20px;">
                             <li class="nav-item active"> <a class="nav-link" href="/">Home</a> </li>
                         </ul>
                     </div>
