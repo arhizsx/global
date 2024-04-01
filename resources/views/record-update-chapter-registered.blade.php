@@ -17,10 +17,10 @@
             <small>Chapters you registered in the system</small>
         </div>
         <div class="col-xl-9 mb-3 pe-4 ps-4">
-                <?php
+                @php
                     $chapters = DB::table("chapters")
                                 ->get();
-                ?>
+                @endphp
                 @if( count($chapters) > 0 )
                     @foreach($chapters as $chapter)
                     <div class="fields_box mb-3">
