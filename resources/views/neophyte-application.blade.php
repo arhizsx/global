@@ -10,10 +10,4 @@
 
 @section("maincontent")
 
-@php
-    $json = "new-chapter-application.json";
-@endphp
-
-<x-fields :json="$json" />
-
 @endsection

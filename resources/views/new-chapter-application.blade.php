@@ -9,8 +9,10 @@
 @endsection
 
 @section("maincontent")
-<div class="row min-vh-100 bg-black" style="padding-top: 100px;">
+@php
+    $json = "new-chapter-application.json";
+@endphp
 
-</div>
+<x-fields :json="$json" />
 
 @endsection
