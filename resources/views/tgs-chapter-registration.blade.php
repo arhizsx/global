@@ -12,7 +12,7 @@
 
 @section("maincontent")
 @php
-    $json = "chapter-registration.json";
+    $json = "tgs-chapter-registration.json";
 @endphp
 
 <x-fields :json="$json" />
