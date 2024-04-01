@@ -94,7 +94,7 @@ $config_decoded = json_decode($json_path, true);
 
                                 <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
                                     <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
-                                    <input value="TEST" name="{{ $flds["name"] }}[]" type="text" class="form-control mb-3 {{ $flds["class"] ?? '' }}" placeholder="{{ $flds["placeholder"] }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
+                                    <input value="" name="{{ $flds["name"] }}[]" type="text" class="form-control mb-3 {{ $flds["class"] ?? '' }}" placeholder="{{ $flds["placeholder"] }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
                                 </div>
 
                             @elseif($flds["type"] == "select")
