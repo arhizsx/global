@@ -9,6 +9,10 @@
 @endsection
 
 @section("maincontent")
-<div class="trail"><a href="/record-update">Record Update</a> > <strong>Profile</strong></div>
+@php
+    $json = "profile-update.json";
+@endphp
+
+<x-fields :json="$json" />
 
 @endsection
