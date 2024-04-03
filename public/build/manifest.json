@@ -1,0 +1,38 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-BM--jJPn.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/jquery.signature.css": {
+    "file": "assets/jquery-tOpqpe1P.css",
+    "src": "resources/css/jquery.signature.css",
+    "isEntry": true
+  },
+  "resources/css/tau.css": {
+    "file": "assets/tau-BXKPD8Yy.css",
+    "src": "resources/css/tau.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-BKYVPBaB.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-sEhFnVTV.css"
+    ]
+  },
+  "resources/js/jquery.signature.js": {
+    "file": "assets/jquery.signature-aDtZLxez.js",
+    "name": "jquery.signature",
+    "src": "resources/js/jquery.signature.js",
+    "isEntry": true
+  },
+  "resources/js/tau.js": {
+    "file": "assets/tau-DMgR4EOC.js",
+    "name": "tau",
+    "src": "resources/js/tau.js",
+    "isEntry": true
+  }
+}
