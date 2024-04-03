@@ -7,56 +7,21 @@
         <meta name="author" content="Tech Team Philippines">
         <title>Tau Gamma Phi</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link rel="shortcut icon" type="image/svg" href="/icon_optimized.png">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    </head>
-    <style>
-        html, body{height:100%; background-color: black;}
-        .navbar-brand {
-            font-weight: bold;
-            margin-left: 15px;
-        }
-        a {
-            text-decoration: none;
-            color: white;
-            cursor: pointer;
-        }
-        .subheader-text {
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-left: 20px;
-            font-size: 24px;
-        }
-        .menu-item {
-            width: 120px;
-            height: 120px;
-        }
-        .fields_box {
-            background-color: #fdd700;
-            border-radius: 20px;
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-top: 30px;
-            padding-bottom: 30px;
-            color: black;
-        }
-        label {
-            margin-bottom: 3px;
-            font-size: .8em;
-        }
-        .trail {
-            padding-top: 8px; padding-left: 18px; font-size: .75em;
-            color: white;
-        }
-        .trail strong {
-            color: #fdd700;
-        }
 
-    </style>
+        <link rel="shortcut icon" type="image/png" href="/icon_optimized.png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/theme.min.css" integrity="sha512-hbs/7O+vqWZS49DulqH1n2lVtu63t3c3MTAn0oYMINS5aT8eIAbJGDXgLt6IxDHcWyzVTgf9XyzZ9iWyVQ7mCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link type="text/css" href="/css/jquery.signature.css" rel="stylesheet">
+
+    </head>
+
+    @vite('resources/css/tau.css')
+
     <body>
         @include('logo')
-        <div class="container-fluid px-0">
+        <div class="container-fluid p-0 m-0">
             <header>
                 <nav class="navbar fixed-top navbar-expand-lg bg-white p-2" style="min-height: 100px;">
                     <div class="navbar-brand">
@@ -70,6 +35,7 @@
                             <li class="nav-item active"> <a class="nav-link" href="/">Home</a> </li>
                             <li class="nav-item"> <a class="nav-link" href="/triskelions">Triskelions</a> </li>
                             <li class="nav-item"> <a class="nav-link" href="/chapters">Chapters</a> </li>
+                            <li class="nav-item"> <a class="nav-link" href="/councils">Councils</a> </li>
                             <li class="nav-item"> <a class="nav-link" href="/record-update">Record Update</a> </li>
                         </ul>
                     </div>
@@ -85,6 +51,9 @@
                         </div>
                     </div>
                 </subheader>
+                <breadcrumbs>
+                    @yield('breadcrumbs');
+                </breadcrumbs>
                 <maincontent>
                     @yield('maincontent')
                 </maincontent>
@@ -93,156 +62,16 @@
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha512-0bEtK0USNd96MnO4XhH8jhv3nyRF0eK87pJke6pkYf3cM0uDIhNJy9ltuzqgypoIFXw3JSuiy04tVk4AjpZdZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <script>
-
-            // $(document).ready(function(){
-            //     $(document).find("input").val("");
-            //     $(document).find("select").val("");
-            // });
-
-            $(document).on("change", ".field_monitor", function(){
-
-                console.log( this.value );
-                console.log( $(this).attr("name") );
-
-                var element = $(this);
-                var field_name =  $(this).attr("name");
-                var field_value =  $(this).val();
-
-                if(field_name == "country"){
-                    if(field_value == "PH"){
-                        $(this).closest(".row").find("[name='region']").parent().removeClass("d-none");
-                        $(this).closest(".row").find("[name='province']").parent().removeClass("d-none");
-
-                    } else {
-                        $(this).closest(".row").find("[name='region']").parent().addClass("d-none");
-                        $(this).closest(".row").find("[name='province']").parent().addClass("d-none");
-                    }
-                }
-
-                if(field_name == "region"){
-
-                }
-
-                if(field_name == "province"){
-
-                }
-
-                if(field_name == "city"){
-
-                }
-
-                var action = "field_monitor";
-                var field_update = AjaxAction(
-                        {
-                            action: action,
-                            field_name: field_name,
-                            field_value: field_value
-                        },
-                        element
-                    );
-
-                $.when(field_update).done(function(){
-                    console.log("Ajax Action Done");
-                });
-
-            });
-
-            $(document).on("change", ".field_monitor_multi", function(){
-
-                console.log( this.value );
-                console.log( $(this).attr("name") );
-                console.log( $(this).data() );
-
-                var element = $(this);
-                var field_name =  $(this).attr("name");
-                var field_value =  $(this).val();
-                var field_group_id = "0";
-                var field_group = "test";
-
-                if(field_name == "country"){
-                    if(field_value == "PH"){
-                        $(this).closest(".row").find("[name='region']").parent().removeClass("d-none");
-                        $(this).closest(".row").find("[name='province']").parent().removeClass("d-none");
-
-                    } else {
-                        $(this).closest(".row").find("[name='region']").parent().addClass("d-none");
-                        $(this).closest(".row").find("[name='province']").parent().addClass("d-none");
-                    }
-                }
-
-                if(field_name == "region"){
-
-                }
-
-                if(field_name == "province"){
-
-                }
-
-                if(field_name == "city"){
-
-                }
-
-                var action = "field_monitor_multi";
-                var field_update = AjaxAction(
-                        {
-                            action: action,
-                            field_name: field_name,
-                            field_value: field_value,
-                            field_group_id: field_group_id,
-                            field_group: field_group,
-                        },
-                        element
-                    );
-
-                $.when(field_update).done(function(){
-                    console.log("Ajax Action Done");
-                });
-
-            });
-
-            $(document).on("click", ".ajax_btn", function(){
-
-                var element = $(this);
-                var element_data = element.data();
-
-                console.log(element);
-                console.log(element_data);
+        @vite('resources/js/tau.js')
+        @vite('resources/js/jquery.signature.js')
 
 
-            });
+        @yield('js')
 
-
-            function AjaxAction(data, element) {
-
-                var ajax_resp = new $.Deferred();
-
-                $.ajax({
-                    url: "/ajax",
-                    method: "POST",
-                    data: data,
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    beforeSend:function(){
-                    },
-                    success: function (resp){
-                        ajax_resp.resolve(resp);
-                    },
-                    complete: function(){
-                    },
-                    error: function(){
-                        ajax_resp.fail("Error in Ajax Call");
-                    }
-                });
-
-
-                return ajax_resp.promise();
-
-            }
-
-        </script>
+        {{-- @vite('resources/js/app.js') --}}
 
     </body>
 </html>

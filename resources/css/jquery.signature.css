@@ -1,0 +1,9 @@
+/* Styles for signature plugin v1.2.0. */
+.kbw-signature {
+	display: inline-block;
+	border: none;
+	-ms-touch-action: none;
+}
+.kbw-signature-disabled {
+	opacity: 1;
+}

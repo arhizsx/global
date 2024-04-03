@@ -8,6 +8,10 @@
     <div class="subheader-text">Chapter History</div>
 @endsection
 
+@section("breadcrumbs")
+    <div class="trail"><a href="/">Home</a> > <a href="/chapters">Chapters</a> > <strong>Chapter History</strong></div>
+@endsection
+
 @section("maincontent")
 
 @php

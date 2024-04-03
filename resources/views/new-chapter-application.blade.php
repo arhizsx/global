@@ -8,6 +8,10 @@
     <div class="subheader-text">New Chapter Application</div>
 @endsection
 
+@section("breadcrumbs")
+<div class="trail"><a href="/">Home</a> > <a href="/chapters">Chapters</a> > <strong>New Chapter Application</strong></div>
+@endsection
+
 @section("maincontent")
 @php
     $json = "new-chapter-application.json";

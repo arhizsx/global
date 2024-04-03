@@ -8,6 +8,10 @@
     <div class="subheader-text">Triskelions</div>
 @endsection
 
+@section("breadcrumbs")
+<div class="trail"><a href="/">Home</a> > <strong>Triskelions</strong></div>
+@endsection
+
 @section("maincontent")
 
 <div class="row justify-content-center min-vh-100 bg-black" style="padding-top: 100px;">

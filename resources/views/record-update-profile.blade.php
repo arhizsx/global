@@ -8,11 +8,28 @@
 <div class="subheader-text">Profile Update</div>
 @endsection
 
-@section("maincontent")
-@php
-    $json = "profile-update.json";
-@endphp
+@section("breadcrumbs")
+<div class="trail"><a href="/">Home</a> > <a href="/record-update">Record Update</a> > <strong>Profile</strong></div>
+@endsection
 
-<x-fields :json="$json" />
+@section("maincontent")
+
+@if( \Auth::user()->serial_number != null || \Auth::user()->serial_number != "" )
+
+    @php
+        $json = "profile-update.json";
+    @endphp
+
+    <x-fields :json="$json" />
+
+@else
+    <div class="row justify-content-center min-vh-100 bg-black" style="padding-top: 100px;">
+
+        <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
+            <svg class="bi me-2 mb-2 menu-item mb-5"><use xlink:href="#logo"></use></svg>
+            <p>Please wait for your account to be verified before accessing this section</p>
+        </div>
+    </div>
+@endif
 
 @endsection

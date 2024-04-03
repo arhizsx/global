@@ -20,11 +20,11 @@
                 },
                 {
                     "category": "singular",
-                    "name" : "date_joined",
-                    "label": "Date Joined",
-                    "placeholder": "Date Joined",
+                    "name" : "chapter_serial_number",
+                    "label": "Chapter Serial Number",
+                    "placeholder": "Chapter Serial Number",
                     "default_value": "",
-                    "type": "date",
+                    "type": "text",
                     "col-xl": 4,
                     "col-lg": 4,
                     "col-md": 4,
@@ -34,11 +34,11 @@
                 },
                 {
                     "category": "singular",
-                    "name" : "chapter_serial",
-                    "label": "Chapter Serial",
-                    "placeholder": "Chapter Serial",
+                    "name" : "date_joined",
+                    "label": "Date Joined",
+                    "placeholder": "Date Joined",
                     "default_value": "",
-                    "type": "text",
+                    "type": "date",
                     "col-xl": 4,
                     "col-lg": 4,
                     "col-md": 4,
@@ -92,7 +92,7 @@
                             "col-md": 9,
                             "col-sm": 12,
                             "class": "field_monitor_multi",
-                            "required": true
+                            "required": false
                         },
                         {
                             "category": "singular",
@@ -115,7 +115,7 @@
                                 "start": "1968",
                                 "end": "%THIS_YEAR%"
                             },
-                            "required": true
+                            "required": false
                         }
                     ]
                 }
@@ -248,7 +248,7 @@
                         "start": "1",
                         "end": "31"
                     },
-                    "required": true
+                    "required": false
                 },
                 {
                     "category": "singular",
@@ -285,7 +285,7 @@
                     "col-md": 12,
                     "col-sm": 12,
                     "class": "field_monitor",
-                    "required": true
+                    "required": false
                 },
                 {
                     "category": "singular",
@@ -299,7 +299,7 @@
                     "col-md": 12,
                     "col-sm": 12,
                     "class": "field_monitor",
-                    "required": true
+                    "required": false
                 },
                 {
                     "category": "singular",
@@ -381,7 +381,7 @@
                                     "text": "Grand Council Member"
                                 }
                             ],
-                            "required": true
+                            "required": false
                         },
                         {
                             "category": "singular",
@@ -404,7 +404,7 @@
                                 "start": "1968",
                                 "end": "%THIS_YEAR%"
                             },
-                            "required": true
+                            "required": false
                         }
                     ]
                 }
@@ -430,7 +430,7 @@
                             "col-md": 9,
                             "col-sm": 12,
                             "class": "field_monitor_multi",
-                            "required": true
+                            "required": false
                         },
                         {
                             "category": "singular",
@@ -453,7 +453,7 @@
                                 "start": "1968",
                                 "end": "%THIS_YEAR%"
                             },
-                            "required": true
+                            "required": false
                         }
                     ]
                 }
@@ -509,7 +509,7 @@
                                     "text": "Grand Council Member"
                                 }
                             ],
-                            "required": true
+                            "required": false
                         },
                         {
                             "category": "singular",
@@ -532,7 +532,7 @@
                                 "start": "1968",
                                 "end": "%THIS_YEAR%"
                             },
-                            "required": true
+                            "required": false
                         },
                         {
                             "category": "singular",
@@ -548,7 +548,7 @@
                             "class": "field_monitor_multi",
                             "options":[
                             ],
-                            "required": true
+                            "required": false
                         }
                     ]
                 }
@@ -996,7 +996,7 @@
                         "start": "0",
                         "end": "20"
                     },
-                    "required": true
+                    "required": false
                 },
                 {
                     "category": "singular",
@@ -1154,7 +1154,7 @@
                     "col-md": 6,
                     "col-sm": 12,
                     "class": "field_monitor",
-                    "required": true
+                    "required": false
                 },
                 {
                     "category": "singular",
@@ -1168,7 +1168,7 @@
                     "col-md": 6,
                     "col-sm": 12,
                     "class": "field_monitor",
-                    "required": true
+                    "required": false
                 }
             ]
         },
@@ -1581,7 +1581,7 @@
             "fields": [
                 {
                     "category": "multiple",
-                    "name" : "root_chapter_position_group",
+                    "name" : "highschool_group",
                     "fields": [
                         {
                             "category": "singular",
@@ -1595,7 +1595,7 @@
                             "col-md": 12,
                             "col-sm": 12,
                             "class": "field_monitor_multi",
-                            "required": true
+                            "required": false
                         },
                         {
                             "category": "singular",
@@ -1618,7 +1618,7 @@
                                 "start": "1968",
                                 "end": "%THIS_YEAR%"
                             },
-                            "required": true
+                            "required": false
                         },
                         {
                             "category": "singular",
@@ -1641,7 +1641,7 @@
                                 "start": "1968",
                                 "end": "%THIS_YEAR%"
                             },
-                            "required": true
+                            "required": false
                         }
 
                     ]
@@ -1654,7 +1654,7 @@
             "fields": [
                 {
                     "category": "multiple",
-                    "name" : "root_chapter_position_group",
+                    "name" : "college_group",
                     "fields": [
                         {
                             "category": "singular",
@@ -1668,7 +1668,7 @@
                             "col-md": 12,
                             "col-sm": 12,
                             "class": "field_monitor_multi",
-                            "required": true
+                            "required": false
                         },
                         {
                             "category": "singular",
@@ -1691,7 +1691,7 @@
                                 "start": "1968",
                                 "end": "%THIS_YEAR%"
                             },
-                            "required": true
+                            "required": false
                         },
                         {
                             "category": "singular",
@@ -1714,7 +1714,7 @@
                                 "start": "1968",
                                 "end": "%THIS_YEAR%"
                             },
-                            "required": true
+                            "required": false
                         },
                         {
                             "category": "singular",
@@ -1728,7 +1728,7 @@
                             "col-md": 6,
                             "col-sm": 6,
                             "class": "field_monitor_multi",
-                            "required": true
+                            "required": false
                         },
                         {
                             "category": "singular",
@@ -1756,7 +1756,7 @@
                                 }
                             ],
                             "class": "field_monitor_multi",
-                            "required": true
+                            "required": false
                         }
                     ]
                 }
