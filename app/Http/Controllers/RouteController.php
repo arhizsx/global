@@ -168,6 +168,36 @@ class RouteController extends Controller
 
         }
 
+        elseif($page == "tgs-chapter-registration"){
+
+            $form_data = DB::table("registrations")
+                            ->where("user_id", Auth::user()->id)
+                            ->where("form", "tgs_chapter_registration")
+                            ->where("status", "pending")
+                            ->first();
+
+            if($form_data){
+
+                $formdata = json_decode($form_data->data, true);
+
+                $formdata = [
+                    "fields_data" => $formdata["fields_data"]
+                ];
+
+            } else {
+
+                $formdata = [
+                    "fields_data" => []
+                ];
+
+            }
+
+
+
+            return json_decode( json_encode($formdata), true);
+
+        }
+
         elseif($page == "triskelion-registration"){
 
             $form_data = DB::table("registrations")
