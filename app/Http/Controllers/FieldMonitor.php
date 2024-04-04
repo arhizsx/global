@@ -48,6 +48,7 @@ class FieldMonitor extends Controller
 
                 $result = DB::table( $this->table )
                             ->where( "user_id", Auth::user()->id )
+                            ->where("form", $this->registration_form)
                             ->update([
                                 "data" => json_encode($data)
                             ]);
@@ -129,6 +130,7 @@ class FieldMonitor extends Controller
 
                 $result = DB::table( $this->table )
                             ->where( "user_id", Auth::user()->id )
+                            ->where("form", $this->registration_form)
                             ->update([
                                 "data" => json_encode($data)
                             ]);

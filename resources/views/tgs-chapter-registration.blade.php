@@ -1,12 +1,11 @@
 @extends('layout')
 
-
 @section("logo")
-    <img class="mb-2" src="/images/taugammasigma.png" width="70" height="70">
+    <svg class="bi me-2" width="70" height="70"><use xlink:href="#logo"></use></svg>
 @endsection
 
 @section("subheader")
-    <div class="subheader-text">TGS Chapter Registration</div>
+<div class="subheader-text">TGS Chapter Registration</div>
 @endsection
 
 @section("breadcrumbs")
@@ -14,13 +13,15 @@
 @endsection
 
 @section("maincontent")
+
 @php
-    $json = "tgs-chapter-registration.json";
+    $json = "chapter-registration.json";
+
 @endphp
 <form class="form ajax_form" id="tgs_chapter_registration">
     <div class="container-fluid bg-black text-white p-0 m-0">
 
-        <x-fields :json="$json" />
+        <x-fields :json="$json" :formdata="$data" />
 
         <div class="row py-5 border-bottom">
             <div class="col-xl-3 mb-3 ps-4">
@@ -104,7 +105,9 @@
                 <h4 class="m-start-4">Information Certification</h4>
             </div>
             <div class="col-xl-9 mb-3 pe-4 ps-4">
+
                 <div class="fields_box row">
+
                     <H2>Information Certification</H2>
                     <p style='line-height: 2; margin-top: 20px;'>&emsp;&emsp;I hereby certify that all of the above entries are true and correct to the best of my knowledge. Any deliberate falsehood may subject me to disciplinary action by my chapter or by a higher authority within the Tau Gamma Phi Global leadership hierarchy.</p>
                     <div class="container-fluid">
@@ -125,6 +128,13 @@
             </div>
         </div>
 
+
+    </div>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-end px-3 pt-3 pb-5">
+            <button class="btn btn-dark ajax_btn me-3" data-action="chapter-registration-cancel" data-next_page="/chapters">Cancel</button>
+            <button class="btn btn-secondary ajax_btn" data-action="triskelion-registration-continue" data-next_page="/triskelions/triskelion-registration/step-2">Register Chapter</button>
+        </div>
     </div>
 </form>
 
@@ -162,6 +172,6 @@
     </div>
 </div>
 
-
-
 @endsection
+
+
