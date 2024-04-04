@@ -16,15 +16,22 @@
 
 @if( \Auth::user()->serial_number != null || \Auth::user()->serial_number != "" )
 
+    @php
+        $json = "council-details-update.json";
+    @endphp
+    <form class="form ajax_update_form" id="council_details_update">
+        <div class="container-fluid bg-black text-white p-0 m-0">
+            <x-fields :json="$json" />
+        </div>
+    </form>
 
 @else
-    <div class="row justify-content-center min-vh-100 bg-black" style="padding-top: 100px;">
+<div class="row justify-content-center min-vh-100 bg-black" style="padding-top: 100px;">
 
-        <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
-            <svg class="bi me-2 mb-2 menu-item mb-5"><use xlink:href="#logo"></use></svg>
-            <p>Please wait for your account to be verified before accessing this section</p>
-        </div>
+    <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
+        <svg class="bi me-2 mb-2 menu-item mb-5"><use xlink:href="#logo"></use></svg>
+        <p>Please wait for your account to be verified before accessing this section</p>
     </div>
+</div>
 @endif
-
 @endsection

@@ -5,14 +5,19 @@
 @endsection
 
 @section("subheader")
+<div class="subheader-text">Tau Gamma Phi Global</div>
+@endsection
+
+@section("breadcrumbs")
+<div class="trail"><strong>Home</strong></div>
 @endsection
 
 @section("maincontent")
 <div class="row bg-black" style="padding-top: 100px;">
     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-5">
-        <a href="/councils">
+        <a href="/triskelions">
             <svg class="bi me-2 mb-2 menu-item"><use xlink:href="#logo"></use></svg>
-            <p>Councils</p>
+            <p>Triskelions</p>
         </a>
     </div>
     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-5">
@@ -22,9 +27,9 @@
         </a>
     </div>
     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-5">
-        <a href="/triskelions">
+        <a href="/councils">
             <svg class="bi me-2 mb-2 menu-item"><use xlink:href="#logo"></use></svg>
-            <p>Triskelions</p>
+            <p>Councils</p>
         </a>
     </div>
     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-5">

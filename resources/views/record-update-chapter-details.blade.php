@@ -19,8 +19,11 @@
     @php
         $json = "chapter-registration.json";
     @endphp
-
-    <x-fields :json="$json" />
+    <form class="form ajax_update_form" id="chapter_details_update">
+        <div class="container-fluid bg-black text-white p-0 m-0">
+            <x-fields :json="$json" />
+        </div>
+    </form>
 
 @else
 <div class="row justify-content-center min-vh-100 bg-black" style="padding-top: 100px;">
