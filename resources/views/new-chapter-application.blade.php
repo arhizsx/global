@@ -31,7 +31,7 @@
                     <p>&emsp;&emsp;So help me God.</p>
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-xl-6 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
+                            <div class="col-xl-12 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
                                 <div class="">
 
                                     <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="gt">
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="sign-box w-100">Name & Signature of Current Chapter Officer<button class="btn btn-dark btn-sm ajax_btn ms-4  my-3" data-action="affix-signature" data-signbox="gt">GT Signature</button></div>
                             </div>
-                            <div class="col-xl-6 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
+                            <div class="col-xl-12 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
                                 <div class="">
 
                                     <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="dgt">
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="sign-box w-100">Name & Signature of Current Chapter Officer<button class="btn btn-dark btn-sm ajax_btn ms-4  my-3" data-action="affix-signature" data-signbox="dgt">DGT Signature</button></div>
                             </div>
-                            <div class="col-xl-6 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
+                            <div class="col-xl-12 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
                                 <div class="">
 
                                     <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="mks">
@@ -60,36 +60,6 @@
                                     </div>
                                 </div>
                                 <div class="sign-box w-100">Name & Signature of Current Chapter Officer<button class="btn btn-dark btn-sm ajax_btn ms-4 my-3" data-action="affix-signature" data-signbox="mks">MKS Signature</button></div>
-                            </div>
-                            <div class="col-xl-6 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
-                                <div class="">
-
-                                    <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="mkc">
-                                        <div class="signature" data-signbox="mkc"></div>
-                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="mkc" data-fieldgroup_name="mkc" data-fieldgroup_id="0"></textarea>
-                                    </div>
-                                </div>
-                                <div class="sign-box w-100">Name & Signature of Current Chapter Officer<button class="btn btn-dark btn-sm ajax_btn ms-4 my-3" data-action="affix-signature" data-signbox="mkc">MKC Signature</button></div>
-                            </div>
-                            <div class="col-xl-6 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
-                                <div class="">
-
-                                    <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="mwww">
-                                        <div class="signature" data-signbox="mwww"></div>
-                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="mwww" data-fieldgroup_name="mwww" data-fieldgroup_id="0"></textarea>
-                                    </div>
-                                </div>
-                                <div class="sign-box w-100">Name & Signature of Current Chapter Officer<button class="btn btn-dark btn-sm ajax_btn ms-4 my-3" data-action="affix-signature" data-signbox="mwww">MWW Signature</button></div>
-                            </div>
-                            <div class="col-xl-6 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
-                                <div class="">
-
-                                    <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="mi">
-                                        <div class="signature" data-signbox="mi"></div>
-                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="mi" data-fieldgroup_name="mi" data-fieldgroup_id="0"></textarea>
-                                    </div>
-                                </div>
-                                <div class="sign-box w-100">Name & Signature of Current Chapter Officer<button class="btn btn-dark btn-sm ajax_btn ms-4 my-3" data-action="affix-signature" data-signbox="mi">MI Signature</button></div>
                             </div>
                         </div>
                     </div>
