@@ -21,7 +21,7 @@
     @endphp
     <form class="form ajax_update_form" id="council_details_update">
         <div class="container-fluid bg-black text-white p-0 m-0">
-            <x-fields :json="$json" />
+            <x-fields :json="$json" :formdata="$data" />
         </div>
     </form>
 

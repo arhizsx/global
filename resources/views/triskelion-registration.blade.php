@@ -26,7 +26,7 @@
 <form class="form ajax_form" id="triskelion_registration">
     <div class="container-fluid bg-black text-white">
 
-        <x-fields :json="$json" />
+        <x-fields :json="$json" :formdata="$data" />
 
         <div class="row py-5 border-bottom">
             <div class="col-xl-3 mb-3 ps-4">

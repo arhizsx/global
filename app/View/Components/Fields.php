@@ -12,11 +12,13 @@ class Fields extends Component
      * Create a new component instance.
      */
     public $json;
+    public $formdata;
 
-     public function __construct($json)
+     public function __construct( $json,  $formdata = null)
     {
         //
 
+        $this->formdata = $formdata;
         $this->json = $json;
     }
 

@@ -3,6 +3,50 @@
 $json_path = Storage::disk('configs')->get($json);
 $config_decoded = json_decode($json_path, true);
 
+if(! function_exists('FieldData')) {
+    function FieldData( $field_name, $formdata ){
+
+        if($formdata != null){
+            if(array_key_exists("fields_data", $formdata)){
+                foreach($formdata["fields_data"] as $key => $fld_val){
+                    if( $key == $field_name ){
+                        return $fld_val;
+                    }
+                }
+                return null;
+            }
+        } else {
+            return null;
+        }
+    }
+}
+
+if(! function_exists('FieldDataMulti')) {
+    function FieldDataMulti( $fieldgroup, $fieldgroup_id, $field_name, $formdata ){
+
+        if($formdata != null){
+            if(array_key_exists("fields_data", $formdata)){
+                foreach($formdata["fields_data"] as $fldgrp_key => $fldgrp_val){
+                    if( $fldgrp_key == $fieldgroup ){
+                        foreach(  $formdata["fields_data"][$fieldgroup]["fields"] as $flds_key => $flds_val  ){
+                            if( $flds_val["id"] == $fieldgroup_id  ){
+                                if( array_key_exists($field_name . '[]',  $flds_val["fields"] ) ){
+                                    return $flds_val["fields"][$field_name . '[]'];
+                                }
+                            } else {
+                                return null;
+                            }
+                        }
+                    }
+                }
+                return null;
+            }
+        } else {
+            return null;
+        }
+    }
+}
+
 @endphp
 
 @foreach( $config_decoded["fields_definition"] as $group )
@@ -20,12 +64,12 @@ $config_decoded = json_decode($json_path, true);
                     @if( $field["type"] == "text")
                         <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
                             <label for="{{ $field["name"] }}">{{ $field["label"] }} {{ $field["required"] === true ? "*" : "" }}</label>
-                            <input name="{{ $field["name"] }}" type="text" class="form-control mb-3 {{ $field["class"] ?? '' }}" placeholder="{{ $field["placeholder"] }}">
+                            <input name="{{ $field["name"] }}" type="text" class="form-control mb-3 {{ $field["class"] ?? '' }}" placeholder="{{ $field["placeholder"] }}" value="{{ FieldData( $field["name"], $formdata ) }}">
                         </div>
                     @elseif( $field["type"] == "date")
                         <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
                             <label for="{{ $field["name"] }}">{{ $field["label"] }} {{ $field["required"] === true ? "*" : "" }}</label>
-                            <input name="{{ $field["name"] }}" type="date" class="form-control mb-3 {{ $field["class"] ?? '' }}" placeholder="{{ $field["placeholder"] }}">
+                            <input name="{{ $field["name"] }}" type="date" class="form-control mb-3 {{ $field["class"] ?? '' }}" placeholder="{{ $field["placeholder"] }}" value="{{ FieldData( $field["name"], $formdata ) }}">
                         </div>
                     @elseif( $field["type"] == "select")
                         <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
@@ -33,8 +77,11 @@ $config_decoded = json_decode($json_path, true);
                             <select name="{{ $field["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                 <option value="">{{ $field["placeholder"] }}</option>
                                 @if(array_key_exists("options", $field ))
+                                    @php
+                                        $select_value = FieldData( $field["name"], $formdata );
+                                    @endphp
                                     @foreach($field["options"] as $option)
-                                        <option value="{{ $option["value"] }}">{{ $option["text"] }}</option>
+                                        <option value="{{ $option["value"] }}" {{ $select_value == $option["value"] ? 'selected' : '' }}>{{ $option["text"] }}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -50,10 +97,13 @@ $config_decoded = json_decode($json_path, true);
                                     } else {
                                         $end = $field["type_options"]["end"];
                                     }
+                                    $select_value = FieldData( $field["name"], $formdata );
                                 @endphp
 
                                 @for( $i = $field["type_options"]["start"]; $i <= $end; $i++ )
-                                    <option value="{{ $i }}">{{ $i }}</option>
+
+
+                                    <option value="{{ $i }}" {{ $select_value == $i ? 'selected' : '' }}>{{ $i }}</option>
                                 @endfor
                             </select>
                         </div>
@@ -62,15 +112,19 @@ $config_decoded = json_decode($json_path, true);
                             <label for="{{ $field["name"] }}">{{ $field["label"] }} {{ $field["required"] === true ? "*" : "" }}</label>
                             <select name="{{ $field["name"] }}" class="form-control mb-3 {{ $field["class"] ?? '' }}">
                                 <option value="">{{ $field["placeholder"] }}</option>
+                                @php
+                                    $select_value =  FieldData( $field["name"], $formdata );
+                                @endphp
 
                             </select>
                         </div>
-
                     @elseif($field["type"] == "textarea")
 
                         <div class=" col-xl-{{ $field['col-xl'] ?? ''}} col-lg-{{ $field['col-lg'] ?? ''}} col-md-{{ $field['col-md'] ?? ''}}">
                             <label for="{{ $field["name"] }}">{{ $field["label"] }} {{ $field["required"] === true ? "*" : "" }}</label>
-                            <textarea class="form-control mb-3 {{ $field["class"] ?? '' }}" rows="15" name="{{ $field["name"] }}"></textarea>
+                            <textarea class="form-control mb-3 {{ $field["class"] ?? '' }}" rows="15" name="{{ $field["name"] }}">
+                                {{ FieldData( $field["name"], $formdata ) }}
+                            </textarea>
                         </div>
 
 
@@ -91,7 +145,7 @@ $config_decoded = json_decode($json_path, true);
 
                             <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
                                 <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
-                                <input value="" name="{{ $flds["name"] }}[]" type="text" class="form-control mb-3 {{ $flds["class"] ?? '' }}" placeholder="{{ $flds["placeholder"] }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
+                                <input value="{{ FieldDataMulti( $field["name"], 0, $flds["name"], $formdata ) }}" name="{{ $flds["name"] }}[]" type="text" class="form-control mb-3 {{ $flds["class"] ?? '' }}" placeholder="{{ $flds["placeholder"] }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
                             </div>
 
                         @elseif($flds["type"] == "select")
@@ -101,9 +155,11 @@ $config_decoded = json_decode($json_path, true);
                                 <select name="{{ $flds["name"] }}[]" class="form-control mb-3 {{ $flds["class"] ?? '' }}" data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
                                     @if(array_key_exists("options", $flds ))
                                         <option value="">{{ $flds["placeholder"] }}</option>
-
+                                        @php
+                                            $select_value = FieldDataMulti( $field["name"], 0, $flds["name"], $formdata );
+                                        @endphp
                                         @foreach($flds["options"] as $options)
-                                            <option value="{{ $options["value"] }}">{{ $options["text"] }}</option>
+                                            <option value="{{ $options["value"] }} {{ $options["value"] == $select_value ? "selected" : "" }} ">{{ $options["text"] }}</option>
                                         @endforeach
                                     @endif
                                 </select>
@@ -121,10 +177,13 @@ $config_decoded = json_decode($json_path, true);
                                         } else {
                                             $end = $flds["type_options"]["end"];
                                         }
+
+                                        $select_value = FieldDataMulti( $field["name"], 0, $flds["name"], $formdata );
+
                                     @endphp
 
                                     @for( $i = $flds["type_options"]["start"]; $i <= $end; $i++ )
-                                        <option value="{{ $i }}">{{ $i }}</option>
+                                        <option value="{{ $i }}" {{ $i == $select_value ? "selected" : "" }}>{{ $i }}</option>
                                     @endfor
                                 </select>
                             </div>
@@ -134,6 +193,9 @@ $config_decoded = json_decode($json_path, true);
                             <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
                                 <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
                                 <select name="{{ $flds["name"] }}[]" class="form-control mb-3 {{ $flds["class"] ?? '' }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
+                                    @php
+                                        $select_value = FieldDataMulti( $field["name"], 0, $flds["name"], $formdata );
+                                    @endphp
                                     <option value="">{{ $flds["placeholder"] }}</option>
                                 </select>
                             </div>
@@ -142,7 +204,10 @@ $config_decoded = json_decode($json_path, true);
 
                             <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
                                 <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
-                                <textarea class="form-control mb-3 {{ $field["class"] ?? '' }}" name="{{ $flds["name"] }}]" data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0"></textarea>
+                                @php
+                                    $select_value = FieldDataMulti( $field["name"], 0, $flds["name"], $formdata );
+                                @endphp
+                                <textarea class="form-control mb-3 {{ $field["class"] ?? '' }}" name="{{ $flds["name"] }}]" data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">{{ $select_value }}</textarea>
                             </div>
 
                         @else

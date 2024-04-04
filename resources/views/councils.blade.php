@@ -18,7 +18,7 @@
     @if( \Auth::user()->serial_number != null )
 
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
-            <a href="/councils/registration">
+            <a href="/councils/council-registration">
                 <svg class="bi me-2 mb-2 menu-item"><use xlink:href="#logo"></use></svg>
                 <p>Council Registration</p>
             </a>

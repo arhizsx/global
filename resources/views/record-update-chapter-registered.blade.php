@@ -21,8 +21,8 @@
         <small>Chapters you registered in the system</small>
     </div>
     <div class="col-xl-9 mb-3 pe-4 ps-4">
-            @if( count($chapters) > 0 )
-                @foreach($chapters as $chapter)
+            @if( count($data["chapters"]) > 0 )
+                @foreach($data["chapters"] as $chapter)
                 <div class="fields_box mb-3">
 
                     <div class="row mb-3">
@@ -79,9 +79,12 @@
                 @endforeach
             @else
                 <div class="row">
+                    <div class="fields_box mb-3">
+
                     <div class="col text-center">
                         <H5>No Approved Chapter</H5>
                         <small>Please wait for the approval of the chapter you registered</small>
+                    </div>
                     </div>
                 </div>
             @endif
