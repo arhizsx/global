@@ -145,14 +145,26 @@ class RouteController extends Controller
                             ->where("form", "chapter_registration")
                             ->where("status", "pending")
                             ->first();
-            $data = json_decode($form_data->data, true);
+
+            if($form_data){
+
+                $formdata = json_decode($form_data->data, true);
+
+                $formdata = [
+                    "fields_data" => $formdata["fields_data"]
+                ];
+
+            } else {
+
+                $formdata = [
+                    "fields_data" => []
+                ];
+
+            }
 
 
-            $data = [
-                "fields_data" => $data["fields_data"]
-            ];
 
-            return json_decode( json_encode($data), true);
+            return json_decode( json_encode($formdata), true);
 
         }
 
@@ -163,14 +175,24 @@ class RouteController extends Controller
                             ->where("form", "triskelion_registration")
                             ->where("status", "pending")
                             ->first();
-            $data = json_decode($form_data->data, true);
 
+            if($form_data){
 
-            $data = [
-                "fields_data" => $data["fields_data"]
-            ];
+                $formdata = json_decode($form_data->data, true);
 
-            return json_decode( json_encode($data), true);
+                $formdata = [
+                    "fields_data" => $formdata["fields_data"]
+                ];
+
+            } else {
+
+                $formdata = [
+                    "fields_data" => []
+                ];
+
+            }
+
+            return json_decode( json_encode($formdata), true);
 
         }
 
@@ -181,14 +203,25 @@ class RouteController extends Controller
                             ->where("form", "new_chapter_application")
                             ->where("status", "pending")
                             ->first();
-            $data = json_decode($form_data->data, true);
 
+            if($form_data){
 
-            $data = [
-                "fields_data" => $data["fields_data"]
-            ];
+                $formdata = json_decode($form_data->data, true);
 
-            return json_decode( json_encode($data), true);
+                $formdata = [
+                    "fields_data" => $formdata["fields_data"]
+                ];
+
+            } else {
+
+                $formdata = [
+                    "fields_data" => []
+                ];
+
+            }
+
+            return json_decode( json_encode($formdata), true);
+
 
         }
 
