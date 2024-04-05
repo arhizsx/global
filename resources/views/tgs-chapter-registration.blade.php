@@ -15,7 +15,18 @@
 @section("maincontent")
 
 @php
-    $json = "chapter-registration.json";
+    $json = "tgs-chapter-registration.json";
+
+
+
+    if(! function_exists('getSignature')) {
+        function getSignature( $fieldgroup, $data ){
+            if(array_key_exists($fieldgroup, $data["fields_data"]) ){
+                return $data["fields_data"][$fieldgroup]["fields"][0]["fields"]["signature[]"];
+            }
+        }
+    }
+
 
 @endphp
 <form class="form ajax_form" id="tgs_chapter_registration">
@@ -23,7 +34,7 @@
 
         <x-fields :json="$json" :formdata="$data" />
 
-        <div class="row py-5 border-bottom">
+        {{-- <div class="row py-5 border-bottom">
             <div class="col-xl-3 mb-3 ps-4">
                 <h4 class="m-start-4">Chapter Pledge of Solidarity</h4>
             </div>
@@ -34,62 +45,62 @@
                     <p>&emsp;&emsp;So help me God.</p>
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-xl-6 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
+                            <div class="col-xl-12 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
                                 <div class="">
 
                                     <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="gt">
                                         <div class="signature" data-signbox="gt"></div>
-                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="gt" data-fieldgroup_name="gt" data-fieldgroup_id="0"></textarea>
+                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="gt" data-fieldgroup_name="gt" data-fieldgroup_id="0">{{ getSignature("gt", $data) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="sign-box w-100">Name & Signature of Current Chapter Officer<button class="btn btn-dark btn-sm ajax_btn ms-4  my-3" data-action="affix-signature" data-signbox="gt">GT Signature</button></div>
                             </div>
-                            <div class="col-xl-6 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
+                            <div class="col-xl-12 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
                                 <div class="">
 
                                     <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="dgt">
                                         <div class="signature" data-signbox="dgt"></div>
-                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="dgt" data-fieldgroup_name="dgt" data-fieldgroup_id="0"></textarea>
+                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="dgt" data-fieldgroup_name="dgt" data-fieldgroup_id="0">{{ getSignature("dgt", $data) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="sign-box w-100">Name & Signature of Current Chapter Officer<button class="btn btn-dark btn-sm ajax_btn ms-4  my-3" data-action="affix-signature" data-signbox="dgt">DGT Signature</button></div>
                             </div>
-                            <div class="col-xl-6 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
+                            <div class="col-xl-12 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
                                 <div class="">
 
                                     <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="mks">
                                         <div class="signature" data-signbox="mks"></div>
-                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="mks" data-fieldgroup_name="mks" data-fieldgroup_id="0"></textarea>
+                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="mks" data-fieldgroup_name="mks" data-fieldgroup_id="0">{{ getSignature("mks", $data) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="sign-box w-100">Name & Signature of Current Chapter Officer<button class="btn btn-dark btn-sm ajax_btn ms-4 my-3" data-action="affix-signature" data-signbox="mks">MKS Signature</button></div>
                             </div>
-                            <div class="col-xl-6 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
+                            <div class="col-xl-12 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
                                 <div class="">
 
                                     <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="mkc">
                                         <div class="signature" data-signbox="mkc"></div>
-                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="mkc" data-fieldgroup_name="mkc" data-fieldgroup_id="0"></textarea>
+                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="mkc" data-fieldgroup_name="mkc" data-fieldgroup_id="0">{{ getSignature("mkc", $data) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="sign-box w-100">Name & Signature of Current Chapter Officer<button class="btn btn-dark btn-sm ajax_btn ms-4 my-3" data-action="affix-signature" data-signbox="mkc">MKC Signature</button></div>
                             </div>
-                            <div class="col-xl-6 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
+                            <div class="col-xl-12 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
                                 <div class="">
 
                                     <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="mwww">
                                         <div class="signature" data-signbox="mwww"></div>
-                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="mwww" data-fieldgroup_name="mwww" data-fieldgroup_id="0"></textarea>
+                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="mwww" data-fieldgroup_name="mwww" data-fieldgroup_id="0">{{ getSignature("mwww", $data) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="sign-box w-100">Name & Signature of Current Chapter Officer<button class="btn btn-dark btn-sm ajax_btn ms-4 my-3" data-action="affix-signature" data-signbox="mwww">MWW Signature</button></div>
                             </div>
-                            <div class="col-xl-6 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
+                            <div class="col-xl-12 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
                                 <div class="">
 
                                     <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="mi">
                                         <div class="signature" data-signbox="mi"></div>
-                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="mi" data-fieldgroup_name="mi" data-fieldgroup_id="0"></textarea>
+                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="mi" data-fieldgroup_name="mi" data-fieldgroup_id="0">{{ getSignature("mi", $data) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="sign-box w-100">Name & Signature of Current Chapter Officer<button class="btn btn-dark btn-sm ajax_btn ms-4 my-3" data-action="affix-signature" data-signbox="mi">MI Signature</button></div>
@@ -98,9 +109,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
-        <div class="row py-5 border-bottom">
+        {{-- <div class="row py-5 border-bottom">
             <div class="col-xl-3 mb-3 ps-4">
                 <h4 class="m-start-4">Information Certification</h4>
             </div>
@@ -114,20 +125,20 @@
                         <div class="row">
                             <div class="col-xl-12 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
                                 <div class="">
-                                    <button class="btn btn-dark btn-sm ajax_btn my-3" data-action="affix-signature" data-signbox="information_certification">Your Signature</button>
                                     <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="information_certification">
                                         <div class="signature" data-signbox="information_certification"></div>
-                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="information_certification" data-fieldgroup_name="information_certification" data-fieldgroup_id="0"></textarea>
+                                        <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="information_certification" data-fieldgroup_name="information_certification" data-fieldgroup_id="0">{{ getSignature("information_certification", $data) }}</textarea>
                                     </div>
                                 </div>
-                                <div class="sign-box w-100">Applicant's Name</div>
+                                <div class="sign-box w-100">Applicant's Name<button class="btn btn-dark btn-sm ajax_btn ms-4 my-3" data-action="affix-signature" data-signbox="information_certification">Your Signature</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+ --}}
 
     </div>
     <div class="container-fluid">

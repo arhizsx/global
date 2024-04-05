@@ -142,6 +142,7 @@ if(! function_exists('FieldDataMulti')) {
                     @if( array_key_exists( $field["name"], $formdata["fields_data"]  ) )
 
                         @foreach( $formdata["fields_data"][$field["name"]]["fields"] as $data_avlb )
+
                             @if( $data_avlb["id"] != 0 )
                                 <div class="col-12 py-0 pe-3 mb-1 d-flex flex-row-reverse">
                                     <button style="margin-top: -10px;" class="py-0 btn-danger btn btn-sm ajax_btn" data-action="fieldgroup_remove" data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="{{ $data_avlb["id"] }}">remove</button>
@@ -355,6 +356,30 @@ if(! function_exists('FieldDataMulti')) {
                     <div class="d-flex flex-row-reverse">
                         <button class="btn btn-sm btn-dark px-3 py-1 ajax_btn" data-action="fieldgroup-add" data-fieldgroup_name="{{ $field["name"]  ?? "" }}"><small>ADD</small></button>
                     </div>
+
+                @elseif( $field["category"] == "signature" )
+                    @php
+                        if( array_key_exists( $field["name"], $formdata["fields_data"] ) ){
+                            $sign = $formdata[ "fields_data" ][ $field["name"] ]["fields"][0]["fields"]["signature[]"];
+                        } else {
+                            $sign = "";
+                        }
+                    @endphp
+                    <div class="row">
+                        <div class="col-xl-12 row text-center d-flex justify-content-center align-items-end mb-3" style="min-height: 120px;">
+                            <div class="signbox_main">
+                                <div class="signature_box d-flex d-none justify-content-center w-100"  data-signbox="{{ $field["name"] }}">
+                                    <div class="signature" data-signbox="{{ $field["name"] }}"></div>
+                                    <textarea class="form-control field_monitor_multi d-none" name="signature[]" data-signbox="{{ $field["name"] }}" data-fieldgroup_name="{{ $field["name"] }}" data-fieldgroup_id="0">{{ $sign }}</textarea>
+                                </div>
+                            </div>
+                            <div class="sign-box w-100">Name & Signature of Current Chapter Officer<button class="btn btn-dark btn-sm ajax_btn ms-4  my-3" data-action="affix-signature" data-signbox="{{ $field["name"] }}">{{ $field["label"] }}</button></div>
+                        </div>
+                    </div>
+
+                @elseif( $field["category"] == "html" )
+
+                    {!! $field["html"] !!}
 
                 @endif
 

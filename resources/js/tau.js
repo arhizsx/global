@@ -1,3 +1,10 @@
+$(document).ready( function(){
+
+    initializeSigns();
+
+});
+
+
 $(document).on("shown.bs.modal", "#modal", function(){
     var signbox = $(document).find("#modal").find(".signature");
 
@@ -243,3 +250,29 @@ function AjaxAction(data, element) {
     return ajax_resp.promise();
 
 }
+
+
+function initializeSigns(){
+    var signs = $(document).find(".ajax_form").find(".signature_box");
+
+    $.each(signs, function(k, v){
+
+        var signbox = $(v).attr("data-signbox");
+        var target = $(v).find("textarea[data-signbox='" + signbox + "']");
+        $(v).removeClass("d-none");
+
+        var target_signbox = $(v).find(".signature[data-signbox='" + signbox + "']");
+
+        if( target.val().length > 0 ){
+
+            target_signbox.css("height", 200);
+            target_signbox.css("width", "60%");
+            target_signbox.signature({background: '#fdd700', color: '#000000', thickness: 3}).signature("disable");
+
+            target_signbox.signature("enable").signature("draw", target.val() ).signature("disable");
+        }
+
+    });
+
+}
+
