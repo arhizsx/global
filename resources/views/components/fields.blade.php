@@ -59,6 +59,7 @@ if(! function_exists('FieldDataMulti')) {
         <div class="fields_box row">
             @foreach( $group["fields"] as $field )
 
+
                 @if( $field["category"] == "singular" )
 
                     @if( $field["type"] == "text")
@@ -137,90 +138,222 @@ if(! function_exists('FieldDataMulti')) {
 
                 @elseif( $field["category"] == "multiple" )
 
-                    <div class="fieldgroup_box row p-0 m-0" data-fieldgroup_name="{{ $field["name"]  ?? "" }}">
 
-                    @foreach($field['fields'] as $flds)
+                    @if( array_key_exists( $field["name"], $formdata["fields_data"]  ) )
 
-                        @if($flds["type"] == "text")
+                        @foreach( $formdata["fields_data"][$field["name"]]["fields"] as $data_avlb )
+                            @if( $data_avlb["id"] != 0 )
+                                <div class="col-12 py-0 pe-3 mb-1 d-flex flex-row-reverse">
+                                    <button style="margin-top: -10px;" class="py-0 btn-danger btn btn-sm ajax_btn" data-action="fieldgroup_remove" data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="{{ $data_avlb["id"] }}">remove</button>
+                                </div>
+                            @endif
 
-                            <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
-                                <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
-                                <input value="{{ FieldDataMulti( $field["name"], 0, $flds["name"], $formdata ) }}" name="{{ $flds["name"] }}[]" type="text" class="form-control mb-3 {{ $flds["class"] ?? '' }}" placeholder="{{ $flds["placeholder"] }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
+                            <div class="fieldgroup_box row p-0 m-0" data-fieldgroup_name="{{ $field["name"]  ?? "" }}" data-fieldgroup_id="{{ $data_avlb["id"] }}">
+
+                                @foreach($field['fields'] as $flds)
+
+                                    @if($flds["type"] == "text")
+
+                                        <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
+                                            <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
+                                            <input value="{{ $data_avlb["fields"][ $flds["name"]."[]" ] ?? ''  }}" name="{{ $flds["name"] }}[]" type="text" class="form-control mb-3 {{ $flds["class"] ?? '' }}" placeholder="{{ $flds["placeholder"] }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="{{ $data_avlb["id"] }}">
+                                        </div>
+
+                                    @elseif($flds["type"] == "select")
+                                        <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
+
+                                            <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
+                                            <select name="{{ $flds["name"] }}[]" class="form-control mb-3 {{ $flds["class"] ?? '' }}" data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="{{ $data_avlb["id"] }}">
+                                                @if(array_key_exists("options", $flds ))
+
+                                                    @php
+                                                        if(array_key_exists($flds["name"]."[]", $data_avlb["fields"] )){
+                                                            $select_value = $data_avlb["fields"][ $flds["name"]."[]" ];
+                                                            print_r($select_value);
+                                                        } else {
+                                                            $select_value = "";
+                                                        }
+                                                    @endphp
+
+                                                    <option value="">{{ $flds["placeholder"] }}</option>
+                                                    @foreach($flds["options"] as $options)
+
+                                                        @php
+                                                            if( $select_value == $options["value"] ){
+                                                                $selected = "selected";
+                                                            } else {
+                                                                $selected = "";
+                                                            }
+                                                        @endphp
+
+                                                        <option value="{{ $options["value"] }}" {{ $selected }} >{{ $options["text"] }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+
+                                    @elseif($flds["type"] == "select_loop")
+
+                                        <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
+                                            <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
+                                            <select name="{{ $flds["name"] }}[]" class="form-control mb-3 {{ $flds["class"] ?? '' }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="{{ $data_avlb["id"] }}">
+                                                <option value="">{{ $flds["placeholder"] }}</option>
+                                                @php
+                                                    if($flds["type_options"]["end"] == "%THIS_YEAR%"){
+                                                        $end = date("Y");
+                                                    } else {
+                                                        $end = $flds["type_options"]["end"];
+                                                    }
+
+                                                    if(array_key_exists($flds["name"]."[]", $data_avlb["fields"] )){
+                                                        $select_value = $data_avlb["fields"][ $flds["name"]."[]" ];
+                                                    } else {
+                                                        $select_value = "";
+                                                    }
+
+                                                @endphp
+
+                                                @for( $i = $flds["type_options"]["start"]; $i <= $end; $i++ )
+                                                    @php
+                                                        if( $select_value == $i["value"] ){
+                                                            $selected = "selected";
+                                                        } else {
+                                                            $selected = "";
+                                                        }
+                                                    @endphp
+
+                                                    <option value="{{ $i }}" {{ $selected }} >{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                        </div>
+
+                                    @elseif($flds["type"] == "select_table")
+
+                                        <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
+                                            <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
+                                            <select name="{{ $flds["name"] }}[]" class="form-control mb-3 {{ $flds["class"] ?? '' }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="{{ $data_avlb["id"] }}">
+                                                @php
+                                                    if(array_key_exists($flds["name"]."[]", $data_avlb["fields"] )){
+                                                        $select_value = $data_avlb["fields"][ $flds["name"]."[]" ];
+                                                    } else {
+                                                        $select_value = "";
+                                                    }
+                                                @endphp
+                                                <option value="">{{ $flds["placeholder"] }}</option>
+                                            </select>
+                                        </div>
+
+                                    @elseif($flds["type"] == "textarea")
+
+                                        <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
+                                            <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
+                                            @php
+                                                if(array_key_exists($flds["name"]."[]", $data_avlb["fields"] )){
+                                                    $select_value = $data_avlb["fields"][ $flds["name"]."[]" ];
+                                                } else {
+                                                    $select_value = "";
+                                                }
+                                            @endphp
+                                            <textarea class="form-control mb-3 {{ $field["class"] ?? '' }}" name="{{ $flds["name"] }}]" data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="{{ $data_avlb["id"] }}">{{ $select_value }}</textarea>
+                                        </div>
+
+                                    @else
+                                        {{ print_r( $flds ) }}
+                                    @endif
+
+                                @endforeach
                             </div>
 
-                        @elseif($flds["type"] == "select")
+                        @endforeach
 
-                            <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
-                                <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
-                                <select name="{{ $flds["name"] }}[]" class="form-control mb-3 {{ $flds["class"] ?? '' }}" data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
-                                    @if(array_key_exists("options", $flds ))
-                                        <option value="">{{ $flds["placeholder"] }}</option>
+                    @else
+
+                        <div class="fieldgroup_box row p-0 m-0" data-fieldgroup_name="{{ $field["name"]  ?? "" }}" data-fieldgroup_id="0">
+
+                            @foreach($field['fields'] as $flds)
+
+                                @if($flds["type"] == "text")
+
+                                    <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
+                                        <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
+                                        <input value="{{ FieldDataMulti( $field["name"], 0, $flds["name"], $formdata ) }}" name="{{ $flds["name"] }}[]" type="text" class="form-control mb-3 {{ $flds["class"] ?? '' }}" placeholder="{{ $flds["placeholder"] }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
+                                    </div>
+
+                                @elseif($flds["type"] == "select")
+
+                                    <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
+                                        <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
+                                        <select name="{{ $flds["name"] }}[]" class="form-control mb-3 {{ $flds["class"] ?? '' }}" data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
+                                            @if(array_key_exists("options", $flds ))
+                                                <option value="">{{ $flds["placeholder"] }}</option>
+                                                @php
+                                                    $select_value = FieldDataMulti( $field["name"], 0, $flds["name"], $formdata );
+                                                @endphp
+                                                @foreach($flds["options"] as $options)
+                                                    <option value="{{ $options["value"] }} {{ $options["value"] == $select_value ? "selected" : "" }} ">{{ $options["text"] }}</option>
+                                                @endforeach
+                                            @endif
+                                        </select>
+                                    </div>
+
+                                @elseif($flds["type"] == "select_loop")
+
+                                    <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
+                                        <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
+                                        <select name="{{ $flds["name"] }}[]" class="form-control mb-3 {{ $flds["class"] ?? '' }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
+                                            <option value="">{{ $flds["placeholder"] }}</option>
+                                            @php
+                                                if($flds["type_options"]["end"] == "%THIS_YEAR%"){
+                                                    $end = date("Y");
+                                                } else {
+                                                    $end = $flds["type_options"]["end"];
+                                                }
+
+                                                $select_value = FieldDataMulti( $field["name"], 0, $flds["name"], $formdata );
+
+                                            @endphp
+
+                                            @for( $i = $flds["type_options"]["start"]; $i <= $end; $i++ )
+                                                <option value="{{ $i }}" {{ $i == $select_value ? "selected" : "" }}>{{ $i }}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+
+                                @elseif($flds["type"] == "select_table")
+
+                                    <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
+                                        <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
+                                        <select name="{{ $flds["name"] }}[]" class="form-control mb-3 {{ $flds["class"] ?? '' }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
+                                            @php
+                                                $select_value = FieldDataMulti( $field["name"], 0, $flds["name"], $formdata );
+                                            @endphp
+                                            <option value="">{{ $flds["placeholder"] }}</option>
+                                        </select>
+                                    </div>
+
+                                @elseif($flds["type"] == "textarea")
+
+                                    <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
+                                        <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
                                         @php
                                             $select_value = FieldDataMulti( $field["name"], 0, $flds["name"], $formdata );
                                         @endphp
-                                        @foreach($flds["options"] as $options)
-                                            <option value="{{ $options["value"] }} {{ $options["value"] == $select_value ? "selected" : "" }} ">{{ $options["text"] }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
+                                        <textarea class="form-control mb-3 {{ $field["class"] ?? '' }}" name="{{ $flds["name"] }}]" data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">{{ $select_value }}</textarea>
+                                    </div>
 
-                        @elseif($flds["type"] == "select_loop")
+                                @else
+                                    {{ print_r( $flds ) }}
+                                @endif
 
-                            <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
-                                <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
-                                <select name="{{ $flds["name"] }}[]" class="form-control mb-3 {{ $flds["class"] ?? '' }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
-                                    <option value="">{{ $flds["placeholder"] }}</option>
-                                    @php
-                                        if($flds["type_options"]["end"] == "%THIS_YEAR%"){
-                                            $end = date("Y");
-                                        } else {
-                                            $end = $flds["type_options"]["end"];
-                                        }
+                            @endforeach
 
-                                        $select_value = FieldDataMulti( $field["name"], 0, $flds["name"], $formdata );
+                        </div>
 
-                                    @endphp
+                    @endif
 
-                                    @for( $i = $flds["type_options"]["start"]; $i <= $end; $i++ )
-                                        <option value="{{ $i }}" {{ $i == $select_value ? "selected" : "" }}>{{ $i }}</option>
-                                    @endfor
-                                </select>
-                            </div>
-
-                        @elseif($flds["type"] == "select_table")
-
-                            <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
-                                <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
-                                <select name="{{ $flds["name"] }}[]" class="form-control mb-3 {{ $flds["class"] ?? '' }}"  data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">
-                                    @php
-                                        $select_value = FieldDataMulti( $field["name"], 0, $flds["name"], $formdata );
-                                    @endphp
-                                    <option value="">{{ $flds["placeholder"] }}</option>
-                                </select>
-                            </div>
-
-                        @elseif($flds["type"] == "textarea")
-
-                            <div class=" col-xl-{{ $flds['col-xl'] ?? ''}} col-lg-{{ $flds['col-lg'] ?? ''}} col-md-{{ $flds['col-md'] ?? ''}}">
-                                <label for="{{ $flds["name"] }}[]">{{ $flds["label"] }} {{ $flds["required"] === true ? "*" : "" }}</label>
-                                @php
-                                    $select_value = FieldDataMulti( $field["name"], 0, $flds["name"], $formdata );
-                                @endphp
-                                <textarea class="form-control mb-3 {{ $field["class"] ?? '' }}" name="{{ $flds["name"] }}]" data-fieldgroup_name="{{ $field["name"] ?? "" }}" data-fieldgroup_id="0">{{ $select_value }}</textarea>
-                            </div>
-
-                        @else
-
-                            {{ print_r( $flds ) }}
-                        @endif
-
-                    @endforeach
-
-                    </div>
 
                     <div class="d-flex flex-row-reverse">
-                        <button class="btn btn-sm btn-dark px-3 py-1 ajax-btn" data-action="fieldgroup-add" data-fieldgroup_name="{{ $field["name"]  ?? "" }}"><small>ADD</small></button>
+                        <button class="btn btn-sm btn-dark px-3 py-1 ajax_btn" data-action="fieldgroup-add" data-fieldgroup_name="{{ $field["name"]  ?? "" }}"><small>ADD</small></button>
                     </div>
 
                 @endif

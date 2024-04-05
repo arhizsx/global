@@ -27,6 +27,13 @@ class AjaxHandler extends Controller
                     return $fld->FieldMonitorMulti($request);
                     break;
 
+                case "fieldgroup_add":
+
+                    $fld = new FieldMonitor($request);
+                    return $fld->FieldGroupAdd($request);
+
+                    break;
+
                 default:
 
                     return "Action not yet defined: " . $request->action;

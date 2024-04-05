@@ -181,4 +181,39 @@ class FieldMonitor extends Controller
 
 
     }
+
+
+    public function FieldGroupAdd(){
+
+        $db_data = DB::table( $this->table )
+                    ->where("form", $this->registration_form )
+                    ->where("status", "pending")
+                    ->where("user_id", Auth::user()->id)
+                    ->first();
+
+        $data = json_decode($db_data->data, true);
+
+        $counter = $data["fields_data"][$this->request->fieldgroup_name]["counter"];
+        $data["fields_data"][$this->request->fieldgroup_name]["counter"] = $counter + 1;
+        $data["fields_data"][$this->request->fieldgroup_name]["fields"][] = [
+            "id" => count($data["fields_data"][$this->request->fieldgroup_name]["fields"]),
+            "fields" => []
+        ];
+
+        $db_data = DB::table( $this->table )
+                    ->where("form", $this->registration_form )
+                    ->where("status", "pending")
+                    ->where("user_id", Auth::user()->id)
+                    ->update([
+                        "data" => $data
+                    ]);
+
+
+        return $counter;
+
+    }
+
 }
+
+
+

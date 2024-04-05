@@ -122,11 +122,13 @@ $(document).on("click", ".ajax_btn", function(e){
 
     var element = $(this);
     var element_data = element.data();
+    var form = $(document).find(".ajax_form").attr("id");
 
     console.log(element);
     console.log(element_data);
 
     switch( $(this).data("action")  ){
+
         case "affix-signature":
 
 
@@ -170,7 +172,43 @@ $(document).on("click", ".ajax_btn", function(e){
 
             break;
 
+        case "fieldgroup-add":
+
+
+            var target_box =  $(this).closest(".row").closest(".row");
+            var fieldgroup_box = target_box.find(".fieldgroup_box[data-fieldgroup_id='0']");
+            var fieldgroup_name = $(this).data("fieldgroup_name");
+
+            var data = {
+                action: "fieldgroup_add",
+                form_id: form,
+                fieldgroup_name: fieldgroup_name
+            }
+
+            var btn = AjaxAction(data, element);
+
+            $.when(btn).done(function(id){
+                target_box.prepend(
+                    '<div class="fieldgroup_box row p-0 m-0" data-fieldgroup_name="' + fieldgroup_name + '" data-fieldgroup_id="' + id + '" >' +
+                        fieldgroup_box.html() +
+                        '<div class="col-12 py-0 pe-3 mb-1 d-flex flex-row-reverse"><button  style="margin-top: -10px;" class="py-0 btn-danger btn btn-sm ajax_btn" data-action="fieldgroup_remove" data-fieldgroup_name="' + fieldgroup_name + '" data-fieldgroup_id="' + id + '" >remove</button></div>' +
+                    '</div>'
+                );
+
+                target_box.find(".fieldgroup_box[data-fieldgroup_id='" + id + "']").find(".form-control").attr("data-fieldgroup_id", id);
+
+
+            });
+
+
+
+
+            break;
+
         default:
+
+
+
             var btn = AjaxAction(element_data, element)
 
     }
