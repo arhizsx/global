@@ -562,18 +562,18 @@
             ]
         },
         {
-            "group": "Active Chapters",
+            "group": "Active Councils",
             "instruction": "Mandatory fields marked by asterisk",
             "fields": [
                 {
                     "category": "multiple",
-                    "name" : "active_chapters_group",
+                    "name" : "active_councils_group",
                     "fields": [
                         {
                             "category": "singular",
                             "name" : "active_member",
-                            "label": "Chapter Name",
-                            "placeholder": "Active Chapter",
+                            "label": "Council Name",
+                            "placeholder": "Active Council",
                             "default_value": "",
                             "type": "text",
                             "class": "field_monitor_multi",
@@ -582,6 +582,99 @@
                     ]
                 }
             ]
+        },
+        {
+            "group": "Council Pledge of Solidarity",
+            "instruction": "",
+            "fields": [
+                {
+                    "category": "html",
+                    "name": "council_pledge_of_solidarity_html",
+                    "html":  "<H2>Council Pledge of Solidarity</H2><p style='line-height: 2; margin-top: 20px;'>&emsp;&emsp;By the power vested in us as the duly elected officers of the Grand Council of DSADA Council, we solemnly bind the Council and its members to bear true faith and allegiance to the Tenets and Code of Conduct, and to the Global Constitution, of the Tau Gamma Phi, and we solemnly swear to support and abide by the authority, policies and decisions of the Tau Gamma Phi Global leadership hierarchy.</p><p>&emsp;&emsp;So help me God.</p>"
+                },
+                {
+                    "category": "signature",
+                    "name": "gt",
+                    "label" : "GT Signature",
+                    "placeholder": "Name & Signature of Current Council Officer",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                },
+                {
+                    "category": "signature",
+                    "name": "dgt",
+                    "label" : "DGT Signature",
+                    "placeholder": "Name & Signature of Current Council Officer",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                },
+                {
+                    "category": "signature",
+                    "name": "mks",
+                    "label" : "MKS Signature",
+                    "placeholder": "Name & Signature of Current Council Officer",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                },
+                {
+                    "category": "signature",
+                    "name": "mkc",
+                    "label" : "MKC Signature",
+                    "placeholder": "Name & Signature of Current Council Officer",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                },
+                {
+                    "category": "signature",
+                    "name": "mwww",
+                    "label" : "MWW Signature",
+                    "placeholder": "Name & Signature of Current Council Officer",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                },
+                {
+                    "category": "signature",
+                    "name": "mi",
+                    "label" : "MI Signature",
+                    "placeholder": "Name & Signature of Current Council Officer",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "group": "Information Certification",
+            "instruction": "",
+            "fields": [
+                {
+                    "category": "html",
+                    "name": "information_certication_html",
+                    "html": "<H2>Information Certification</H2><p style='line-height: 2; margin-top: 20px;'>&emsp;&emsp;I hereby certify that all of the above entries are true and correct to the best of my knowledge. Any deliberate falsehood may subject me to disciplinary action by my council or by a higher authority within the Tau Gamma Phi Global leadership hierarchy.</p>"
+                },
+                {
+                    "category": "signature",
+                    "name": "information_certification",
+                    "label" : "Your Signature",
+                    "placeholder": "Applicant's Name",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                }
+            ]
         }
+
     ]
 }
