@@ -1761,6 +1761,108 @@
                     ]
                 }
             ]
+        },
+        {
+            "group": "Oath of Allegiance",
+            "instruction": "Chapter where you are currently active",
+            "fields": [
+                {
+                    "category": "html",
+                    "name": "oath_of_allegiance_html",
+                    "html":  "<H2>Oath of Allegiance</H2><p style='line-height: 2; margin-top: 20px;'>&emsp;&emsp;I solemnly swear that I will bear true faith and allegiance to the Tenets and Code of Conduct, and to the Global Constitution, of the Tau Gamma Phi, that I will abide by the authority, policies and decisions of the Tau Gamma Phi leadership hierarchy, that I will give due respect and honor to the Founding Fathers and to my brother Triskelions, and that I shall never commit any act or omission that will cause dishonor to the Tau Gamma Phi.</p><p>So help me God.</p>"
+                },
+                {
+                    "category": "signature",
+                    "name": "oath_of_allegiance",
+                    "label" : "Your Signature",
+                    "placeholder": "Applicant's Name",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "group": "Information Certification",
+            "instruction": "",
+            "fields": [
+                {
+                    "category": "html",
+                    "name": "information_certication_html",
+                    "html": "<H2>Information Certification</H2><p style='line-height: 2; margin-top: 20px;'>&emsp;&emsp;I hereby certify that all of the above entries are true and correct to the best of my knowledge. Any deliberate falsehood may subject me to disciplinary action by my chapter or by a higher authority within the Tau Gamma Phi Global leadership hierarchy.</p>"
+                },
+                {
+                    "category": "signature",
+                    "name": "information_certification",
+                    "label" : "Your Signature",
+                    "placeholder": "Applicant's Name",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                },
+                {
+                    "category": "signature",
+                    "name": "gt",
+                    "label" : "GT Signature",
+                    "placeholder": "Name & Signature of Current Chapter Officer",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                },
+                {
+                    "category": "signature",
+                    "name": "dgt",
+                    "label" : "DGT Signature",
+                    "placeholder": "Name & Signature of Current Chapter Officer",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                },
+                {
+                    "category": "signature",
+                    "name": "mks",
+                    "label" : "MKS Signature",
+                    "placeholder": "Name & Signature of Current Chapter Officer",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                },
+                {
+                    "category": "signature",
+                    "name": "mkc",
+                    "label" : "MKC Signature",
+                    "placeholder": "Name & Signature of Current Chapter Officer",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                },
+                {
+                    "category": "signature",
+                    "name": "mwww",
+                    "label" : "MWW Signature",
+                    "placeholder": "Name & Signature of Current Chapter Officer",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                },
+                {
+                    "category": "signature",
+                    "name": "mi",
+                    "label" : "MI Signature",
+                    "placeholder": "Name & Signature of Current Chapter Officer",
+                    "default_value": "",
+                    "type": "signature",
+                    "class": "",
+                    "required": true
+                }
+            ]
         }
     ]
 }
