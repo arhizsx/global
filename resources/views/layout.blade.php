@@ -35,7 +35,7 @@
                             <li class="nav-item"> <a class="nav-link" href="/triskelions">Triskelions</a> </li>
                             <li class="nav-item"> <a class="nav-link" href="/chapters">Chapters</a> </li>
                             <li class="nav-item"> <a class="nav-link" href="/councils">Councils</a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="/record-update">Record Update</a> </li>
+                            {{-- <li class="nav-item"> <a class="nav-link" href="/record-update">Record Update</a> </li> --}}
                         </ul>
                     </div>
                 </nav>

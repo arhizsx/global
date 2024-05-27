@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Request;
 
-use \App\Http\Controllers\AjaxHandler;
 use App\Http\Controllers\RouteController;
-
+use App\Http\Controllers\AjaxHandler;
 
 Route::middleware(['auth'])->group(function () {
 
