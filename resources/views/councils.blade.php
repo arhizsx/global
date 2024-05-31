@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.layout')
 
 @section("logo")
     <svg class="bi me-2" width="70" height="70"><use xlink:href="#logo"></use></svg>
@@ -13,20 +13,26 @@
 @endsection
 
 @section("maincontent")
-<div class="row justify-content-center min-vh-100 bg-black" style="padding-top: 100px;">
+<div class="row bg-black" style="padding-top: 50px;">
 
     @if( \Auth::user()->serial_number != null )
 
-        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
             <a href="/councils/council-registration">
                 <svg class="bi me-2 mb-2 menu-item"><use xlink:href="#logo"></use></svg>
                 <p>Council Registration</p>
             </a>
         </div>
-        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
-            <a href="/record-update/council">
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
+            <a href="/councils/council-update">
                 <svg class="bi me-2 mb-2 menu-item"><use xlink:href="#logo"></use></svg>
                 <p>Council Update</p>
+            </a>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
+            <a href="/councils/delegate-council">
+                <svg class="bi me-2 mb-2 menu-item"><use xlink:href="#logo"></use></svg>
+                <p>Delegate Council</p>
             </a>
         </div>
 

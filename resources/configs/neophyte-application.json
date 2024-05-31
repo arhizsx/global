@@ -6,7 +6,7 @@
             "fields": [
                 {
                     "category": "singular",
-                    "name" : "chpater_name",
+                    "name" : "chapter_name",
                     "label": "Chapter Name",
                     "placeholder": "Chapter Name",
                     "default_value": "",

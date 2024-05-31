@@ -4,6 +4,13 @@ $(document).ready( function(){
 
 });
 
+window.onload = () => {
+    $('#onload').modal('show');
+}
+
+$('#onload').on('shown.bs.modal', function() {
+    $('#active_chapter_check').focus();
+});
 
 $(document).on("shown.bs.modal", "#modal", function(){
     var signbox = $(document).find("#modal").find(".signature");
@@ -35,6 +42,8 @@ $(document).on("change", ".field_monitor", function(){
             $(this).closest(".row").find("[name='region']").parent().addClass("d-none");
             $(this).closest(".row").find("[name='province']").parent().addClass("d-none");
         }
+
+
     }
 
     if(field_name == "region"){
@@ -61,8 +70,57 @@ $(document).on("change", ".field_monitor", function(){
             element
         );
 
-    $.when(field_update).done(function(){
+    $.when(field_update).done(function( field_update ){
         console.log("Ajax Action Done");
+        console.log(field_update.data);
+
+        var region = $(document).find(".field_monitor[name='region']");
+        var province = $(document).find(".field_monitor[name='province']");
+        var city = $(document).find(".field_monitor[name='city']");
+
+        if(field_name == "country"){
+
+            region.empty();
+            province.empty();
+            city.empty();
+            region.append("<option>--</option>")
+
+            $.each( field_update.data.regions, function(k, v){
+
+                region.append("<option value='" + v.region + "'>" + v.region + "</option>")
+
+            });
+
+        }
+
+        if(field_name == "region"){
+
+            province.empty();
+            city.empty();
+
+            province.append("<option>--</option>")
+            $.each( field_update.data.provinces, function(k, v){
+
+                province.append("<option value='" + v.province + "'>" + v.province + "</option>")
+
+            });
+
+        }
+
+        if(field_name == "province"){
+
+
+            city.empty();
+            city.append("<option>--</option>")
+            $.each( field_update.data.cities, function(k, v){
+
+                city.append("<option value='" + v.lgu + "'>" + v.lgu + "</option>")
+
+            });
+
+        }
+
+
     });
 
 });
@@ -142,13 +200,13 @@ $(document).on("click", ".ajax_btn", function(e){
             $(document).find("#modal").modal("show");
             $(document).find("#modal").find(".ajax_btn[data-action='set-signature']").attr("data-signbox", element.data("signbox"));
 
-            break;
+        break;
 
         case "clear-signature":
 
             element.parent().find(".signature").signature("clear");
 
-            break;
+        break;
 
         case "set-signature":
 
@@ -177,7 +235,7 @@ $(document).on("click", ".ajax_btn", function(e){
 
             $(document).find("#modal").modal("hide");
 
-            break;
+        break;
 
         case "fieldgroup-add":
 
@@ -207,16 +265,385 @@ $(document).on("click", ".ajax_btn", function(e){
 
             });
 
+        break;
+
+        case "active_chapter_check":
+
+            let active_chapter_check = $(document).find("input#active_chapter_check");
+            let active_chapter_check_value = active_chapter_check.val();
+
+            active_chapter_check.attr("disabled", true);
 
 
+            var data = {
+                action: "active_chapter_check",
+                active_chapter: active_chapter_check_value
+            }
+
+            var btn = AjaxAction(data, element);
+
+            $.when(btn).done(function(btn){
+
+                active_chapter_check.attr("disabled", false);
+
+                if( btn.error == false ){
+
+                    console.log(btn.data);
+
+                    $(document).find("#onload").modal("hide");
+
+                    $(document).find("input[name='chapter_name']").val( btn.data.chapter_name ).change();
+                    $(document).find("input[name='chapter_serial_number']").val( btn.data.chapter_serial_number ).change();
+                    $(document).find("select[name='chapter_category']").val( btn.data.chapter_type.charAt(0).toUpperCase() + btn.data.chapter_type.slice(1) ).change();
+
+                } else {
+
+                    console.log(btn.message);
+
+                }
+
+
+            });
+
+        break;
+
+        case "active_lady_chapter_check":
+
+            let active_lady_chapter_check = $(document).find("input#active_chapter_check");
+            let active_lady_chapter_check_value = active_lady_chapter_check.val();
+
+            active_lady_chapter_check.attr("disabled", true);
+
+            var data = {
+                action: "active_lady_chapter_check",
+                active_lady_chapter_check: active_lady_chapter_check_value
+            }
+
+            var btn = AjaxAction(data, element);
+
+            $.when(btn).done(function(id){
+
+                active_lady_chapter_check.attr("disabled", false);
+
+                console.log(btn);
+
+            });
+
+        break;
+
+        case "triskelion-registration-continue":
+
+            $(document).find("#confirm_registration").modal("show");
+
+        break;
+
+        case "triskelion-registration-confirm":
+
+            var old_text = element.text();
+            var old_bg = element.css("background-color");
+
+            var data = {
+                action: "triskelion_registration_confirm"
+            }
+
+
+            var btn = AjaxAction(data, element);
+
+            element.attr("disabled", "disabled");
+            element.text("Please wait...");
+
+            $.when(btn).done(function(btn){
+
+
+                if(btn.error == false ){
+
+                    console.log(btn);
+                    element.removeAttr("disabled");
+                    element.css("background-color", old_bg);
+                    element.text(old_text);
+
+                    location.reload();
+
+                } else {
+
+                    alert("Error encountered");
+                }
+
+            });
+
+
+        break;
+
+        case "lady-triskelion-registration-continue":
+
+            $(document).find("#confirm_registration").modal("show");
 
             break;
 
+        case "lady-triskelion-registration-confirm":
+
+            var old_text = element.text();
+            var old_bg = element.css("background-color");
+
+            var data = {
+                action: "lady_triskelion_registration_confirm"
+            }
+
+
+            var btn = AjaxAction(data, element);
+
+            element.attr("disabled", "disabled");
+            element.text("Please wait...");
+
+            $.when(btn).done(function(btn){
+
+
+                if(btn.error == false ){
+
+                    console.log(btn);
+                    element.removeAttr("disabled");
+                    element.css("background-color", old_bg);
+                    element.text(old_text);
+
+                    location.reload();
+
+                } else {
+
+                    alert("Error encountered");
+                    element.removeAttr("disabled");
+                    element.css("background-color", old_bg);
+                    element.text(old_text);
+
+                }
+
+            });
+
+
+        break;
+
+        case "neophyte-application-continue":
+
+            $(document).find("#confirm_registration").modal("show");
+
+        break;
+
+        case "neophyte-application-confirm":
+
+            var old_text = element.text();
+            var old_bg = element.css("background-color");
+
+            var data = {
+                action: "neophyte_application_confirm"
+            }
+
+
+            var btn = AjaxAction(data, element);
+
+            element.attr("disabled", "disabled");
+            element.text("Please wait...");
+
+            $.when(btn).done(function(btn){
+
+
+                if(btn.error == false ){
+
+                    console.log(btn);
+                    element.removeAttr("disabled");
+                    element.css("background-color", old_bg);
+                    element.text(old_text);
+
+                    location.reload();
+
+                } else {
+
+                    alert("Error encountered");
+                }
+
+            });
+
+
+        break;
+
+        case "chapter-registration-continue":
+
+            $(document).find("#confirm_registration").modal("show");
+
+        break;
+
+        case "chapter-registration-confirm":
+
+            var old_text = element.text();
+            var old_bg = element.css("background-color");
+
+            var data = {
+                action: "chapter_registration_confirm"
+            }
+
+
+            var btn = AjaxAction(data, element);
+
+            element.attr("disabled", "disabled");
+            element.text("Please wait...");
+
+            $.when(btn).done(function(btn){
+
+
+                if(btn.error == false ){
+
+                    console.log(btn);
+                    element.removeAttr("disabled");
+                    element.css("background-color", old_bg);
+                    element.text(old_text);
+
+                    location.reload();
+
+                } else {
+
+                    alert("Error encountered");
+                }
+
+            });
+
+
+        break;
+
+        case "tgs-chapter-registration-continue":
+
+            $(document).find("#confirm_registration").modal("show");
+
+        break;
+
+        case "tgs-chapter-registration-confirm":
+
+            var old_text = element.text();
+            var old_bg = element.css("background-color");
+
+            var data = {
+                action: "tgs_chapter_registration_confirm"
+            }
+
+
+            var btn = AjaxAction(data, element);
+
+            element.attr("disabled", "disabled");
+            element.text("Please wait...");
+
+            $.when(btn).done(function(btn){
+
+
+                if(btn.error == false ){
+
+                    console.log(btn);
+                    element.removeAttr("disabled");
+                    element.css("background-color", old_bg);
+                    element.text(old_text);
+
+                    location.reload();
+
+                } else {
+
+                    alert("Error encountered");
+                }
+
+            });
+
+        break;
+
+        case "new-chapter-application-continue":
+
+            $(document).find("#confirm_registration").modal("show");
+
+        break;
+
+        case "new-chapter-application-confirm":
+
+            var old_text = element.text();
+            var old_bg = element.css("background-color");
+
+            var data = {
+                action: "new_chapter_application_confirm"
+            }
+
+
+            var btn = AjaxAction(data, element);
+
+            element.attr("disabled", "disabled");
+            element.text("Please wait...");
+
+            $.when(btn).done(function(btn){
+
+
+                if(btn.error == false ){
+
+                    console.log(btn);
+                    element.removeAttr("disabled");
+                    element.css("background-color", old_bg);
+                    element.text(old_text);
+
+                    location.reload();
+
+                } else {
+
+                    alert("Error encountered");
+                }
+
+            });
+
+        break;
+
+        case "delegate-chapter-continue":
+
+            $(document).find("#delegate_modal").modal("show");
+
+        break;
+
+        case "council-registration-continue":
+
+            $(document).find("#confirm_registration").modal("show");
+
+        break;
+
+        case "council-registration-confirm":
+
+            var old_text = element.text();
+            var old_bg = element.css("background-color");
+
+            var data = {
+                action: "council_registration_confirm"
+            }
+
+
+            var btn = AjaxAction(data, element);
+
+            element.attr("disabled", "disabled");
+            element.text("Please wait...");
+
+            $.when(btn).done(function(btn){
+
+
+                if(btn.error == false ){
+
+                    console.log(btn);
+                    element.removeAttr("disabled");
+                    element.css("background-color", old_bg);
+                    element.text(old_text);
+
+                    location.reload();
+
+                } else {
+
+                    alert("Error encountered");
+                }
+
+            });
+
+        break;
+
         default:
 
-
-
             var btn = AjaxAction(element_data, element)
+
+        break;
 
     }
 

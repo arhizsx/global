@@ -21,6 +21,7 @@
     <body>
         @include('logo')
         <div class="container-fluid p-0 m-0">
+
             <header>
                 <nav class="navbar fixed-top navbar-expand-lg bg-white p-2" style="min-height: 100px;">
                     <div class="navbar-brand">
@@ -29,7 +30,7 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto" style="margin-left: 20px;">
                             <li class="nav-item active"> <a class="nav-link" href="/">Home</a> </li>
                             <li class="nav-item"> <a class="nav-link" href="/triskelions">Triskelions</a> </li>
@@ -37,6 +38,9 @@
                             <li class="nav-item"> <a class="nav-link" href="/councils">Councils</a> </li>
                             {{-- <li class="nav-item"> <a class="nav-link" href="/record-update">Record Update</a> </li> --}}
                         </ul>
+                        <div class=""  style="margin-left: 20px; margin-right: 20px; margin-top: 10px; margin-bottom: 10px;">
+                            Logout
+                        </div>
                     </div>
                 </nav>
                 <!-- ./ end of navbar -->

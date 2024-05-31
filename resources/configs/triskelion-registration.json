@@ -127,7 +127,7 @@
             "fields": [
                 {
                     "category": "singular",
-                    "name" : "chapter_name",
+                    "name" : "root_chapter_name",
                     "label": "Chapter Name",
                     "placeholder": "Chapter Name",
                     "default_value": "",

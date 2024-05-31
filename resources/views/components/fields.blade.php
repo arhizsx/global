@@ -3,10 +3,15 @@
 $json_path = Storage::disk('configs')->get($json);
 $config_decoded = json_decode($json_path, true);
 
+// dd($json);
+
 if(! function_exists('FieldData')) {
     function FieldData( $field_name, $formdata ){
 
+
+
         if($formdata != null){
+
             if(array_key_exists("fields_data", $formdata)){
                 foreach($formdata["fields_data"] as $key => $fld_val){
                     if( $key == $field_name ){
@@ -213,7 +218,7 @@ if(! function_exists('FieldDataMulti')) {
 
                                                 @endphp
 
-                                                @for( $i = $flds["type_options"]["start"]; $i <= $end; $i++ )
+                                                {{-- @for( $i = $flds["type_options"]["start"]; $i <= $end; $i++ )
                                                     @php
                                                         if( $select_value == $i["value"] ){
                                                             $selected = "selected";
@@ -223,7 +228,7 @@ if(! function_exists('FieldDataMulti')) {
                                                     @endphp
 
                                                     <option value="{{ $i }}" {{ $selected }} >{{ $i }}</option>
-                                                @endfor
+                                                @endfor --}}
                                             </select>
                                         </div>
 

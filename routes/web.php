@@ -20,11 +20,11 @@ Route::middleware(['auth'])->group(function () {
 
 
     // CHAPTERS
-    Route::get('/chapters/{page?}', [RouteController::class, 'chapters']);
+    Route::get('/chapters/{page?}/{id?}/{second_page?}', [RouteController::class, 'chapters']);
 
 
     // COUNCILS
-    Route::get('/councils/{page?}', [RouteController::class, 'councils']);
+    Route::get('/councils/{page?}/{id?}', [RouteController::class, 'councils']);
 
 
 

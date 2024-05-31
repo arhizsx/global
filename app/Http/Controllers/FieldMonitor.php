@@ -73,7 +73,35 @@ class FieldMonitor extends Controller
 
             }
 
-            return $this->request;
+            $data = [];
+            if( $this->request->field_name == "country" && $this->request->field_value == "PH"){
+                $regions = DB::table("locations")
+                            ->distinct("region")
+                            ->select("region")
+                            ->get();
+                $data["regions"] = $regions;
+            }
+            elseif( $this->request->field_name == "region"){
+                $provinces = DB::table("locations")
+                            ->distinct("province")
+                            ->select("province")
+                            ->where("region", $this->request->field_value)
+                            ->get();
+                $data["provinces"] = $provinces;
+            }
+            elseif( $this->request->field_name == "province"){
+                $cities = DB::table("locations")
+                            ->distinct("lgu")
+                            ->select("lgu")
+                            ->where("province", $this->request->field_value)
+                            ->get();
+                $data["cities"] = $cities;
+            }
+
+            return [
+                "request" => $this->request->all(),
+                "data" => $data,
+            ];
 
         } else {
 

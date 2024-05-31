@@ -9,7 +9,7 @@
 @endsection
 
 @section("breadcrumbs")
-<div class="trail"><a href="/">Home</a> > <a href="/record-update">Record Update</a> > <strong>Profile</strong></div>
+<div class="trail"><a href="/">Home</a> > <a href="/triskelions">Triskelions</a> > <strong>Profile Update</strong></div>
 @endsection
 
 @section("maincontent")
@@ -22,6 +22,11 @@
         <form class="form ajax_update_form" id="profile_update">
             <div class="container-fluid bg-black text-white p-0 m-0">
                 <x-fields :json="$json" />
+            </div>
+            <div class="container-fluid">
+                <div class="d-flex justify-content-end px-3 pt-3 pb-5">
+                    <button class="btn btn-secondary ajax_btn" data-action="update-profile">Update Profile</button>
+                </div>
             </div>
         </form>
 @else

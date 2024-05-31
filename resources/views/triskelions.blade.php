@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.layout')
 
 @section("logo")
     <svg class="bi me-2" width="70" height="70"><use xlink:href="#logo"></use></svg>
@@ -14,7 +14,7 @@
 
 @section("maincontent")
 
-<div class="row justify-content-center min-vh-100 bg-black" style="padding-top: 100px;">
+<div class="row bg-black" style="padding-top: 50px;">
     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
         <a href="/triskelions/triskelion-registration">
             <svg class="bi me-2 mb-2 menu-item"><use xlink:href="#logo"></use></svg>
@@ -34,7 +34,7 @@
         </a>
     </div>
     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
-        <a href="/record-update/profile">
+        <a href="/triskelions/profile-update">
             <svg class="bi me-2 mb-2 menu-item"><use xlink:href="#logo"></use></svg>
             <p>Profile Update</p>
         </a>

@@ -11,6 +11,7 @@
                     "placeholder": "Chapter Name",
                     "default_value": "",
                     "type": "text",
+                    "class": "field_monitor",
                     "required": true
                 }
             ]
@@ -26,6 +27,7 @@
                     "placeholder": "Year",
                     "default_value": "",
                     "type": "date",
+                    "class": "field_monitor",
                     "required": true
                 }
             ]
@@ -41,6 +43,7 @@
                     "placeholder": "Grand Triskelion",
                     "default_value": "",
                     "type": "text",
+                    "class": "field_monitor",
                     "required": true
                 },
                 {
@@ -50,6 +53,7 @@
                     "placeholder": "Deputy Grand Triskelion",
                     "default_value": "",
                     "type": "text",
+                    "class": "field_monitor",
                     "required": true
                 }
             ]
@@ -69,6 +73,7 @@
                             "placeholder": "Grand Council Member",
                             "default_value": "",
                             "type": "text",
+                            "class": "field_monitor_multi",
                             "required": true
                         }
                     ]
@@ -90,6 +95,7 @@
                             "placeholder": "Alexis",
                             "default_value": "",
                             "type": "text",
+                            "class": "field_monitor_multi",
                             "required": true
                         }
                     ]
@@ -111,6 +117,7 @@
                             "placeholder": "New Triskelion",
                             "default_value": "",
                             "type": "text",
+                            "class": "field_monitor_multi",
                             "required": true
                         }
                     ]
@@ -128,6 +135,7 @@
                     "placeholder": "",
                     "default_value": "",
                     "type": "textarea",
+                    "class": "field_monitor",
                     "required": true
                 }
             ]
