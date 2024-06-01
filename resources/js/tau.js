@@ -464,6 +464,51 @@ $(document).on("click", ".ajax_btn", function(e){
 
         break;
 
+        case "chapter-history-continue":
+
+            $(document).find("#confirm_registration").modal("show");
+
+        break;
+
+        case "chapter-history-confirm":
+
+            var old_text = element.text();
+            var old_bg = element.css("background-color");
+
+            var data = {
+                action: "chapter_history_confirm"
+            }
+
+
+            var btn = AjaxAction(data, element);
+
+            element.attr("disabled", "disabled");
+            element.text("Please wait...");
+
+            $.when(btn).done(function(btn){
+
+
+                if(btn.error == false ){
+
+                    console.log(btn);
+                    element.removeAttr("disabled");
+                    element.css("background-color", old_bg);
+                    element.text(old_text);
+
+                    location.reload();
+
+                } else {
+
+                    alert("Error encountered");
+                }
+
+            });
+
+
+        break;
+
+
+
         case "chapter-registration-continue":
 
             $(document).find("#confirm_registration").modal("show");

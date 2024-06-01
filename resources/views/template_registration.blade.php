@@ -14,6 +14,11 @@
 @endsection
 
 @section("maincontent")
+<div class="text-white">
+@php
+    print_r($data);
+@endphp
+</div>
 
 <form class="form ajax_form" id="{{ $config["form"] }}">
     <div class="container-fluid bg-black text-white">

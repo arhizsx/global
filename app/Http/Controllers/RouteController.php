@@ -392,6 +392,8 @@ class RouteController extends Controller
 
                 $button_cancel_action = "chapter-history-cancel";
                 $button_continue_action = "chapter-history-continue";
+                $button_continue_label = "Submit History";
+
 
             break;
 
@@ -736,6 +738,13 @@ class RouteController extends Controller
                 $form = "tgs_chapter_registration";
                 break;
 
+            case "chapter-history":
+
+                $getdata_type = "registration";
+                $form = "chapter_history";
+                break;
+
+
             case "new-chapter-application":
 
                 $getdata_type = "registration";
@@ -773,7 +782,6 @@ class RouteController extends Controller
                 $getdata_type = "selection";
                 $form = "council_update";
                 break;
-
 
             case "chapter-update":
 

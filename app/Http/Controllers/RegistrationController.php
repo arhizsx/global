@@ -77,6 +77,12 @@ class RegistrationController extends Controller
 
             break;
 
+            case "chapter_history_confirm":
+
+                $form = "chapter_history";
+
+            break;
+
             case "tgs_chapter_registration_confirm":
 
                 $form = "tgs_chapter_registration";

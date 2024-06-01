@@ -77,6 +77,13 @@ class AjaxHandler extends Controller
 
                     break;
 
+                case "chapter_history_confirm":
+
+                    $chp = new RegistrationController($request);
+                    return $chp->ConfirmRegistration($request);
+
+                    break;
+
                 case "tgs_chapter_registration_confirm":
 
                     $chp = new RegistrationController($request);
