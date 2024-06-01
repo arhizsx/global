@@ -15,14 +15,6 @@
 
 @section("maincontent")
 
-{{-- <div class="text-white">
-@php
-    // dd($data);
-    print_r($data);
-    print_r($config);
-@endphp
-</div> --}}
-
 @if( $config["backlink_title"] == "Chapters" )
 <div class="mt-3">
 
@@ -34,13 +26,16 @@
 
 <form class="form ajax_form" id="{{ $config["form"] }}">
     @if($data["fields_data"] != null)
+
         @if($data["fields_data"]["user_id"] == Auth::user()->id)
             <div class="container-fluid bg-black text-white">
 
                 <x-fields :json="$config['json']" :formdata="$data" />
 
             </div>
+
         @else
+
             <div class="container-fluid bg-black text-white">
                 <div class="row justify-content-center min-vh-100 bg-black" style="padding-top: 100px;">
 
@@ -50,6 +45,7 @@
                     </div>
                 </div>
             </div>
+
         @endif
     @else
         <div class="container-fluid bg-black text-white">

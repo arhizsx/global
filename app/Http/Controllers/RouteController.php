@@ -31,10 +31,10 @@ class RouteController extends Controller
         }
         elseif($page == "profile-update") {
 
-            $data = [];
+            $data = $this->getData($page);
             $config = $this->getConfig($page);
 
-            $view = 'template_update';
+            $view = 'template_profile';
 
         }
         else {
@@ -309,16 +309,16 @@ class RouteController extends Controller
 
                 $config_type = "update";
 
-                $json = "neophyte-application.json";
-                $form = "neophyte_application";
+                $json = "profile-update.json";
+                $form = "profile_update";
 
-                $modal_confirm_action = "neophyte-application-confirm";
+                $modal_confirm_action = "profile-update-confirm";
                 $modal_title = "Profile Update";
                 $backlink = "/triskelions";
                 $backlink_title = "Triskelions";
 
-                $button_cancel_action = "neophyte-application-cancel";
-                $button_continue_action = "neophyte-application-continue";
+                $button_cancel_action = "profile-update-cancel";
+                $button_continue_action = "profile-update-continue";
 
             break;
 
@@ -702,6 +702,13 @@ class RouteController extends Controller
 
                 break;
 
+            case "profile-update":
+
+                $getdata_type = "profile";
+                $form = "profile_update";
+
+                break;
+
             case "lady-triskelion-registration":
 
                 $getdata_type = "registration";
@@ -766,8 +773,6 @@ class RouteController extends Controller
                 $getdata_type = "selection";
                 $form = "council_update";
                 break;
-
-
 
 
             case "chapter-update":
@@ -853,6 +858,7 @@ class RouteController extends Controller
         }
 
         elseif( $getdata_type == "update" ){
+
 
             $registration_data = DB::table("registrations")
                     ->where("user_id", Auth::user()->id)
@@ -988,6 +994,19 @@ class RouteController extends Controller
                                     "triskelions" => $triskelions
                                 ]), true);
             }
+
+        }
+
+        elseif( $getdata_type == "profile" ){
+            $profile = DB::table("triskelions")
+                ->where("user_id",  Auth::user()->id)
+                ->first();
+
+            // dd($profile);
+            $return_data = json_decode(json_encode(
+                            [
+                                "fields_data" => $profile
+                            ]), true);
 
         }
 

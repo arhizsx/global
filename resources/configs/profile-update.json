@@ -98,7 +98,7 @@
                 },
                 {
                     "category": "singular",
-                    "name" : "birthday",
+                    "name" : "date_of_birth",
                     "label": "Date of Birth",
                     "placeholder": "Date of Birth",
                     "default_value": "",
@@ -403,19 +403,19 @@
                     "class": "field_monitor",
                     "options":[
                         {
-                            "value": "Single",
+                            "value": "single",
                             "text": "Single"
                         },
                         {
-                            "value": "Married",
+                            "value": "married",
                             "text": "Married"
                         },
                         {
-                            "value": "Separated",
+                            "value": "separated",
                             "text": "Separated"
                         },
                         {
-                            "value": "Widowed",
+                            "value": "widowed",
                             "text": "Widowed"
                         }
                     ],
@@ -423,7 +423,7 @@
                 },
                 {
                     "category": "singular",
-                    "name" : "number_of_children",
+                    "name" : "children",
                     "label": "Number of Children",
                     "placeholder": "Number of Children",
                     "default_value": "",
@@ -446,7 +446,7 @@
                 },
                 {
                     "category": "singular",
-                    "name" : "blood_type",
+                    "name" : "bloodtype",
                     "label": "Blood Type",
                     "placeholder": "Blood Type",
                     "default_value": "",
@@ -574,8 +574,8 @@
                             "text": "Administrative and Support Services"
                         },
                         {
-                            "value": "Public Administration and Social Security",
-                            "text": "Public Administration and Social Security"
+                            "value": "Public Administration & Social Security",
+                            "text": "Public Administration & Social Security"
                         },
                         {
                             "value": "Law Enforcement and Defense",
@@ -993,7 +993,7 @@
                 },
                 {
                     "category": "singular",
-                    "name" :"cellphone",
+                    "name" :"mobile_no",
                     "label": "Cellphone",
                     "placeholder": "Cellphone",
                     "default_value": "",
@@ -1018,193 +1018,6 @@
                     "col-sm": 12,
                     "class": "field_monitor",
                     "required": false
-                }
-            ]
-        },
-        {
-            "group": "High School",
-            "instruction": "Mandatory fields marked by asterisk",
-            "fields": [
-                {
-                    "category": "multiple",
-                    "name" : "root_chapter_position_group",
-                    "fields": [
-                        {
-                            "category": "singular",
-                            "name" : "highschool",
-                            "label": "High School",
-                            "placeholder": "High School",
-                            "default_value": "",
-                            "type": "text",
-                            "col-xl": 12,
-                            "col-lg": 12,
-                            "col-md": 12,
-                            "col-sm": 12,
-                            "class": "field_monitor_multi",
-                            "required": true
-                        },
-                        {
-                            "category": "singular",
-                            "name" : "highschool_from",
-                            "label": "From",
-                            "placeholder": "From",
-                            "default_value": "",
-                            "type": "select_loop",
-                            "col-xl": 6,
-                            "col-lg": 6,
-                            "col-md": 6,
-                            "col-sm": 6,
-                            "class": "field_monitor_multi",
-                            "options":[
-                            ],
-                            "type_options":{
-                                "type": "number_loop",
-                                "value": "value",
-                                "text": "text",
-                                "start": "1968",
-                                "end": "%THIS_YEAR%"
-                            },
-                            "required": true
-                        },
-                        {
-                            "category": "singular",
-                            "name" : "highschool_to",
-                            "label": "To",
-                            "placeholder": "To",
-                            "default_value": "",
-                            "type": "select_loop",
-                            "col-xl": 6,
-                            "col-lg": 6,
-                            "col-md": 6,
-                            "col-sm": 6,
-                            "class": "field_monitor_multi",
-                            "options":[
-                            ],
-                            "type_options":{
-                                "type": "number_loop",
-                                "value": "value",
-                                "text": "text",
-                                "start": "1968",
-                                "end": "%THIS_YEAR%"
-                            },
-                            "required": true
-                        }
-
-                    ]
-                }
-            ]
-        },
-        {
-            "group": "Vocational / Undergraduate (College) / Postgraduate",
-            "instruction": "Mandatory fields marked by asterisk",
-            "fields": [
-                {
-                    "category": "multiple",
-                    "name" : "root_chapter_position_group",
-                    "fields": [
-                        {
-                            "category": "singular",
-                            "name" : "school",
-                            "label": "School",
-                            "placeholder": "School",
-                            "default_value": "",
-                            "type": "text",
-                            "col-xl": 12,
-                            "col-lg": 12,
-                            "col-md": 12,
-                            "col-sm": 12,
-                            "class": "field_monitor_multi",
-                            "required": true
-                        },
-                        {
-                            "category": "singular",
-                            "name" : "school_from",
-                            "label": "From",
-                            "placeholder": "From",
-                            "default_value": "",
-                            "type": "select_loop",
-                            "col-xl": 6,
-                            "col-lg": 6,
-                            "col-md": 6,
-                            "col-sm": 6,
-                            "class": "field_monitor_multi",
-                            "options":[
-                            ],
-                            "type_options":{
-                                "type": "number_loop",
-                                "value": "value",
-                                "text": "text",
-                                "start": "1968",
-                                "end": "%THIS_YEAR%"
-                            },
-                            "required": true
-                        },
-                        {
-                            "category": "singular",
-                            "name" : "school_to",
-                            "label": "To",
-                            "placeholder": "To",
-                            "default_value": "",
-                            "type": "select_loop",
-                            "col-xl": 6,
-                            "col-lg": 6,
-                            "col-md": 6,
-                            "col-sm": 6,
-                            "class": "field_monitor_multi",
-                            "options":[
-                            ],
-                            "type_options":{
-                                "type": "number_loop",
-                                "value": "value",
-                                "text": "text",
-                                "start": "1968",
-                                "end": "%THIS_YEAR%"
-                            },
-                            "required": true
-                        },
-                        {
-                            "category": "singular",
-                            "name" : "course",
-                            "label": "Course",
-                            "placeholder": "Course",
-                            "default_value": "",
-                            "type": "text",
-                            "col-xl": 6,
-                            "col-lg": 6,
-                            "col-md": 6,
-                            "col-sm": 6,
-                            "class": "field_monitor_multi",
-                            "required": true
-                        },
-                        {
-                            "category": "singular",
-                            "name" : "course_type",
-                            "label": "Type",
-                            "placeholder": "Type",
-                            "default_value": "",
-                            "type": "select",
-                            "col-xl": 6,
-                            "col-lg": 6,
-                            "col-md": 6,
-                            "col-sm": 6,
-                            "options":[
-                                {
-                                    "value": "Vocational",
-                                    "text": "Vocational"
-                                },
-                                {
-                                    "value": "College / Undergraduate",
-                                    "text": "College / Undergraduate"
-                                },
-                                {
-                                    "value": "Postgraduate",
-                                    "text": "Postgraduate"
-                                }
-                            ],
-                            "class": "field_monitor_multi",
-                            "required": true
-                        }
-                    ]
                 }
             ]
         }

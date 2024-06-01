@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -61,5 +63,16 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    function serial_number(){
+
+            $triskelion =  DB::table("triskelions")->where("user_id", Auth::user()->id)->first();
+
+            if($triskelion){
+                return $triskelion->serial_number;
+            } else {
+                return null;
+            }
     }
 }

@@ -15,7 +15,7 @@
 @section("maincontent")
 <div class="row bg-black" style="padding-top: 50px;">
 
-    @if( \Auth::user()->serial_number != null )
+    @if( \Auth::user()->serial_number() != null )
 
         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 text-center text-white mb-3">
             <a href="/councils/council-registration">
